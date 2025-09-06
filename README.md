@@ -15,13 +15,3 @@
 - **Cross-Platform**: Works on Windows, macOS, and Linux.
 - **Extensible**: Supports custom templates and plugins.
 
-## Installation
-
-### Prerequisites
-- Python 3.8+ (or another language if applicable)
-- Required libraries: `python-pptx`, `PyPDF2` (for PDF export), etc.
-- Optional: ImageMagick for image export (install separately)
-
-### Install via pip
-```bash
-pip install ppt-cli
