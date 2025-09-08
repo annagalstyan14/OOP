@@ -55,9 +55,9 @@
   ## Example Session
   
 ppt-cli
- create demo.pptx
- slide add --title "Welcome"
- add text --slide 1 --content "Hello, world!"
- add image --slide 1 --path ./logo.png
- save demo.pptx
- export demo.pptx --format pdf
+`create demo.pptx`
+`slide add --title "Welcome"`
+`add text --slide 1 --content "Hello, world!"`
+`add image --slide 1 --path ./logo.png`
+`save demo.pptx`
+`export demo.pptx --format pdf`
