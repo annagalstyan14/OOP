@@ -10,14 +10,7 @@
 - **Slide Management**: Add, delete, reorder, and list slides.
 - **Content Creation**: Add text, images, shapes, tables, and charts to slides.
 - **Formatting**: Apply themes, fonts, backgrounds, and alignments.
-- **Transitions & Animations**: Set slide transitions and element animations.
-- **Batch Processing**: Support for scripting and automation.
 - **Cross-Platform**: Works on Windows, macOS, and Linux.
-- **Extensible**: Supports custom templates and plugins.
-
-- ## Installation
-
-- pip install ppt-cli
 
 - ## Interactive Mode
 - **Launch the CLI shell**: ppt-cli
