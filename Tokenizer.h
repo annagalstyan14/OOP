@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
-#include <vector>
+#include <sstream>
 
 enum class TokenType {
-	COMMAND, OPTION, STRING, NUMBER, END
+	IDENT, OPTION, STRING, NUMBER, EOC, INVALID
 };
 
 struct Token {
@@ -11,7 +11,7 @@ struct Token {
 	std::string value;
 };
 
-class Tokenizer {
-public:
-	static std::vector<Token> tokenize(const std::string& input);
-};
+//class Tokenizer {
+//public:
+	//static std::vector<Token> tokenize(const std::string& input);
+//};
