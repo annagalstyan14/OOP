@@ -3,25 +3,20 @@
 #include <string>
 #include <stdexcept>
 #include <vector>
+#include <map>
 
-enum class commandType {
-	FILE,
-	SLIDE,
-	CONTENT,
-	FORMAT,
-	UNKNOWN
+struct ParsedCommand {
+
+	std::string action;
+	std::vector<std::string> positionals;
+	std::map<std::string, std::string> options;
 };
 
-struct command {
-	commandType type = commandType::UNKNOWN;
-	std::string action;
-	std::vector<std::string> args;
+struct ParseError : public std::runtime_error {
+	using std::runtime_error::runtime_error;
 };
 
 class Parser {
 public:
-	static command parse(const std::vector<Token>& tokens);
-private:
-	static commandType classify(const std::string& keyword);
-	static std::vector<std::string> extractArgs(const std::vector<Token>& tokens, size_t startIndex);
+	static ParsedCommand parse(std::istringstream& lineStream);
 };
