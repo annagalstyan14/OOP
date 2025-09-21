@@ -1,23 +1,43 @@
+#include <iostream>
+#include <sstream>
 #include "Tokenizer.h"
 #include "Parser.h"
-#include "Fetcher.h"
-#include <iostream>
-#include <string>
+
+Token nextToken(std::istringstream& iss);
+
+void executeParsed(const ParsedCommand& pc) {
+    std::cout << "EXECUTE: " << pc.action << "\n";
+    if (!pc.positionals.empty()) {
+        std::cout << "  positionals:\n";
+        for (auto& p : pc.positionals) std::cout << "    " << p << "\n";
+    }
+    if (!pc.options.empty()) {
+        std::cout << "  options:\n";
+        for (auto& kv : pc.options) std::cout << "    --" << kv.first << " = '" << kv.second << "'\n";
+    }
+    std::cout << "----\n";
+}
 
 int main() {
-    Fetcher fetcher;
-
-    std::string input;
-    std::cout << "ppt-cli> ";
-    while (std::getline(std::cin, input)) {
-        if (input == "exit" || input == "quit") break;
-
-        auto tokens = Tokenizer::tokenize(input);
-        command cmd = Parser::parse(tokens);
-        fetcher.fetch(cmd);
-
+    std::string line;
+    std::cout << "ppt-cli (type 'exit' to quit)\n";
+    while (true) {
         std::cout << "ppt-cli> ";
-    }
+        if (!std::getline(std::cin, line)) break;
+        if (line == "exit" || line == "quit") break;
 
+        std::istringstream strm(line);
+
+        try {
+            ParsedCommand pc = Parser::parse(strm);
+            executeParsed(pc);
+        }
+        catch (const ParseError& e) {
+            std::cerr << "Parse error: " << e.what() << "\n";
+        }
+        catch (const std::exception& e) {
+            std::cerr << "Error: " << e.what() << "\n";
+        }
+    }
     return 0;
 }
