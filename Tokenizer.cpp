@@ -1,58 +1,61 @@
 #include "Tokenizer.h"
-#include <vector>
-#include <string>
+#include <iostream>
 #include <algorithm>
 
-std::vector<Token> Tokenizer::tokenize(const std::string& input) {
-	std::vector<Token> tokens;
-	std::string current;
-	bool inQuotes = false;
+static constexpr size_t MAX_TOKEN_LENGTH = 20;
 
-	auto isSpace = [](char c) {
-		return c == ' ' || c == '\t' || c == '\n' || c == '\r';
-		};
+static inline bool isDelimiter(char c) {
+	return c == ' ' || c == '\t' || c == ',';
+}
 
-	auto isDigit = [](char c) {
-		return c >= '0' && c <= '9';
-		};
-
-	for (size_t i = 0; i< input.size(); ++i) {
-		char c = input[i];
-
-		if (c == '"') {
-			inQuotes = !inQuotes;
-			continue;
+Token nextToken(std::istringstream& iss) {
+	char c;
+	while (iss.get(c)) {
+		if (!isDelimiter(c)) {
+			iss.unget();
+			break;
 		}
+	}
+	if (!iss.good() || iss.peek() == EOF) {
+		return { TokenType::EOC,"" };
+	}
 
-		if (!inQuotes && isSpace(c)) {
-			if (!current.empty()) {
-				if (current.rfind("--", 0) == 0) {
-					tokens.push_back({ TokenType::OPTION, current.substr(2) });
-				}
-				else if (std::all_of(current.begin(), current.end(), isDigit)) {
-					tokens.push_back({ TokenType::NUMBER, current });
-				}
-				else {
-					tokens.push_back({ TokenType::COMMAND, current });
-				}
-				current.clear();
+	if (iss.peek() == '"') {
+		iss.get();
+		std::string accum;
+		while (iss.get(c)) {
+			if (c == '"') break;
+			accum.push_back(c);
+			if (accum.size() > MAX_TOKEN_LENGTH) {
+				throw std::runtime_error("Token exceedes max length");
 			}
 		}
-		else {
-			current.push_back(c);
+		return { TokenType::STRING, accum };
+	}
+
+	std::string token;
+	while (iss.get(c)) {
+		if (isDelimiter(c)) break;
+		token.push_back(c);
+		if (token.size() > MAX_TOKEN_LENGTH) {
+			throw std::runtime_error("Token exceeds max length");
 		}
 	}
-	if (!current.empty()) {
-		if (current.rfind("--", 0) == 0) {
-			tokens.push_back({ TokenType::OPTION, current.substr(2) });
-		}
-		else if (std::all_of(current.begin(), current.end(), isDigit)) {
-			tokens.push_back({ TokenType::NUMBER, current });
-		} 
-		else {
-			tokens.push_back({ TokenType::COMMAND, current });
-		}
+
+	if (token.empty()) {
+		return { TokenType::EOC, "" };
 	}
-	tokens.push_back({ TokenType::END, "" });
-	return tokens;
+
+	if (token.size() >= 1 && token[0] == '-') {
+		size_t index = 0;
+		while (index < token.size() && token[index] == '-') ++index;
+		std::string name = token.substr(index);
+		if (name.empty()) throw std::runtime_error("Invalid option token: '" + token + "'");
+		return { TokenType::OPTION, name };
+	}
+
+	bool allDigits = !token.empty();
+	for (char ch : token) { if (ch < '0' || ch > '9') { allDigits = false; break; } }
+	if (allDigits) return { TokenType::NUMBER, token };
+	return { TokenType::IDENT, token };
 }
