@@ -1,134 +1,109 @@
 #include "Parser.h"
-#include <iostream>
-#include <algorithm>
+#include <cctype>
 
-extern Token nextToken(std::istringstream& iss); 
-
-enum class State {
-    START, FILE_CMD, EXPECT_EXPORT_OPTS, SLIDE, CONTENT_ADD, FORMAT, READ_OPTIONS, ERROR, DONE
-};
-
-static bool matches(const Token& t, const char* s) {
-    return t.type == TokenType::IDENT && t.value == s;
+std::string Parser::toLower(const std::string& s) {
+    std::string out = s;
+    for (char& c : out) {
+        c = std::tolower(static_cast<unsigned char>(c));
+    }
+    return out;
 }
 
-ParsedCommand Parser::parse(std::istringstream& lineStream) {
-    ParsedCommand out;
-    State state = State::START;
+bool Parser::parseDFA(CommandNode& node, std::string& err) {
+    node.cmd.clear();
+    node.object.clear();
+    node.flags.clear();
+    node.args.clear();
+    node.positionArgs.clear();
 
-    while (true) {
-        Token tk = nextToken(lineStream);
+    Token t = tz.next();
+    if (t.type == TokenType::END) {
+        err = "empty input";
+        return false;
+    }
 
-        if (tk.type == TokenType::EOC) {
-            if (state == State::START) {
-                throw ParseError("Empty command");
-            }
-            state = State::DONE;
-            break;
-        }
+    // Expect first token to be a command (WORD)
+    if (t.type != TokenType::WORD) {
+        err = "command must be a word";
+        return false;
+    }
+    node.cmd = toLower(t.text);
 
-        switch (state) {
-        case State::START:
-            if (tk.type != TokenType::IDENT) throw ParseError("Expected command keyword at start");
-            if (tk.value == "create" || tk.value == "open" || tk.value == "save") {
-                out.action = tk.value;
-                state = State::READ_OPTIONS;
-            }
-            else if (tk.value == "export") {
-                out.action = tk.value;
-                state = State::EXPECT_EXPORT_OPTS;
-            }
-            else if (tk.value == "slide") {
+    // Check if command expects an object (sub-command)
+    bool expectsObject = node.cmd == "slide" || node.cmd == "add" || node.cmd == "theme" ||
+                        node.cmd == "font" || node.cmd == "background" || node.cmd == "align";
 
-                Token sub = nextToken(lineStream);
-                if (sub.type != TokenType::IDENT) throw ParseError("Expected slide sub-command after 'slide'");
-                if (sub.value == "add" || sub.value == "delete" || sub.value == "list" || sub.value == "reorder") {
-                    out.action = std::string("slide ") + sub.value;
-                    if (sub.value == "list") {
-                        state = State::READ_OPTIONS;
-                    }
-                    else {
-                        state = State::READ_OPTIONS;
-                    }
-                }
-                else {
-                    throw ParseError("Invalid slide sub-command: " + sub.value);
-                }
-            }
-            else if (tk.value == "add") {
-                Token sub = nextToken(lineStream);
-                if (sub.type != TokenType::IDENT) throw ParseError("Expected add sub-command (text/image/chart/table)");
-                if (sub.value == "text" || sub.value == "image" || sub.value == "chart" || sub.value == "table") {
-                    out.action = std::string("add ") + sub.value;
-                    state = State::READ_OPTIONS;
-                }
-                else {
-                    throw ParseError("Invalid add sub-command: " + sub.value);
-                }
-            }
-            else if (tk.value == "theme" || tk.value == "font" || tk.value == "background" || tk.value == "align") {
+    // Get next token
+    t = tz.next();
+    if (expectsObject && t.type == TokenType::WORD) {
+        node.object = toLower(t.text);
+        t = tz.next();
+    } else if (!expectsObject && t.type == TokenType::WORD) {
+        node.args.push_back(t.text);
+        t = tz.next();
+    }
 
-                Token sub = nextToken(lineStream);
-                if (sub.type != TokenType::IDENT) throw ParseError("Expected formatting sub-command");
-                out.action = tk.value + std::string(" ") + sub.value;
-                state = State::READ_OPTIONS;
+    // Process remaining tokens
+    while (t.type != TokenType::END) {
+        if (t.type == TokenType::FLAG) {
+            std::string flag = t.text;
+            t = tz.next();
+            std::string value;
+            if (t.type == TokenType::WORD || t.type == TokenType::STRING || t.type == TokenType::NUMBER) {
+                value = t.text;
+                t = tz.next();
             }
-            else {
-                throw ParseError("Unknown top-level command: " + tk.value);
-            }
-            break;
-
-        case State::EXPECT_EXPORT_OPTS:
-
-            if (tk.type == TokenType::IDENT || tk.type == TokenType::STRING) {
-                out.positionals.push_back(tk.value);
-                state = State::READ_OPTIONS;
-            }
-            else {
-                throw ParseError("Expected filename after export");
-            }
-            break;
-
-        case State::READ_OPTIONS:
-            if (tk.type == TokenType::OPTION) {
-                std::string optName = tk.value;
-                Token possibleValue = nextToken(lineStream);
-                if (possibleValue.type == TokenType::IDENT || possibleValue.type == TokenType::STRING || possibleValue.type == TokenType::NUMBER) {
-                    out.options[optName] = possibleValue.value;
-                }
-                else if (possibleValue.type == TokenType::OPTION) {
-                    out.options[optName] = "";
-
-                    tk = possibleValue;
-                    out.options[possibleValue.value] = "";
-                }
-                else if (possibleValue.type == TokenType::EOC) {
-                    out.options[optName] = "";
-                }
-                else {
-                    throw ParseError("Unexpected token after option --" + optName);
-                }
-            }
-            else if (tk.type == TokenType::IDENT || tk.type == TokenType::STRING || tk.type == TokenType::NUMBER) {
-                out.positionals.push_back(tk.value);
-            }
-            else {
-                throw ParseError("Unexpected token in options/args");
-            }
-            break;
-
-        default:
-            throw ParseError("Parser reached invalid state");
+            node.flags[flag] = value;
+        } else if (t.type == TokenType::NUMBER) {
+            node.positionArgs.push_back(t.text);
+            t = tz.next();
+        } else if (t.type == TokenType::WORD || t.type == TokenType::STRING) {
+            node.args.push_back(t.text);
+            t = tz.next();
+        } else {
+            err = "invalid token: " + t.text;
+            return false;
         }
     }
 
-    if (out.action == "create" || out.action == "open") {
-        if (out.positionals.empty()) throw ParseError(out.action + " requires a filename");
+    // Validate README commands
+    if (node.cmd == "slide") {
+        if (node.object != "add" && node.object != "delete" && 
+            node.object != "list" && node.object != "reorder") {
+            err = "Invalid slide sub-command: " + node.object;
+            return false;
+        }
+    } else if (node.cmd == "add") {
+        if (node.object != "text" && node.object != "image" && 
+            node.object != "chart" && node.object != "table") {
+            err = "Invalid add sub-command: " + node.object;
+            return false;
+        }
+    } else if (node.cmd == "theme") {
+        if (node.object != "apply") {
+            err = "Invalid theme sub-command: " + node.object;
+            return false;
+        }
+    } else if (node.cmd == "font") {
+        if (node.object != "set") {
+            err = "Invalid font sub-command: " + node.object;
+            return false;
+        }
+    } else if (node.cmd == "background") {
+        if (node.object != "set") {
+            err = "Invalid background sub-command: " + node.object;
+            return false;
+        }
+    } else if (node.cmd == "align") {
+        if (node.object != "text") {
+            err = "Invalid align sub-command: " + node.object;
+            return false;
+        }
+    } else if (node.cmd != "create" && node.cmd != "open" && 
+               node.cmd != "save" && node.cmd != "export") {
+        err = "Unknown command: " + node.cmd;
+        return false;
     }
 
-    if (out.action.rfind("slide ", 0) == 0) {
-
-    }
-
-    return out;
+    return true;
 }

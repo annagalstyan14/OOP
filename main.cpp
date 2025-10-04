@@ -1,43 +1,64 @@
 #include <iostream>
-#include <sstream>
-#include "Tokenizer.h"
+#include <string>
+#include "Fetch.h"
 #include "Parser.h"
+#include "Semantic.h"
 
-Token nextToken(std::istringstream& iss);
-
-void executeParsed(const ParsedCommand& pc) {
-    std::cout << "EXECUTE: " << pc.action << "\n";
-    if (!pc.positionals.empty()) {
-        std::cout << "  positionals:\n";
-        for (auto& p : pc.positionals) std::cout << "    " << p << "\n";
+void executeParsed(const CommandNode& node) {
+    std::cout << "EXECUTE: " << node.cmd;
+    if (!node.object.empty()) {
+        std::cout << " " << node.object;
     }
-    if (!pc.options.empty()) {
+    std::cout << "\n";
+    if (!node.positionArgs.empty()) {
+        std::cout << "  positionals:\n";
+        for (const auto& p : node.positionArgs) {
+            std::cout << "    " << p << "\n";
+        }
+    }
+    if (!node.args.empty()) {
+        std::cout << "  args:\n";
+        for (const auto& a : node.args) {
+            std::cout << "    " << a << "\n";
+        }
+    }
+    if (!node.flags.empty()) {
         std::cout << "  options:\n";
-        for (auto& kv : pc.options) std::cout << "    --" << kv.first << " = '" << kv.second << "'\n";
+        for (const auto& kv : node.flags) {
+            std::cout << "    " << kv.first << " = '" << kv.second << "'\n";
+        }
     }
     std::cout << "----\n";
 }
 
 int main() {
+    Fetch fetch;
     std::string line;
     std::cout << "ppt-cli (type 'exit' to quit)\n";
     while (true) {
-        std::cout << "ppt-cli> ";
-        if (!std::getline(std::cin, line)) break;
-        if (line == "exit" || line == "quit") break;
+        line = fetch.getCommand(std::cin);
+        if (line.empty() || line == "exit" || line == "quit") {
+            break;
+        }
 
-        std::istringstream strm(line);
+        Tokenizer tz(line);
+        Parser parser(tz);
+        CommandNode node;
+        std::string err;
 
-        try {
-            ParsedCommand pc = Parser::parse(strm);
-            executeParsed(pc);
+        if (!parser.parseDFA(node, err)) {
+            std::cerr << "Parse error: " << err << "\n";
+            continue;
         }
-        catch (const ParseError& e) {
-            std::cerr << "Parse error: " << e.what() << "\n";
+
+        SemanticAnalyzer analyzer;
+        SemanticResult result = analyzer.analyze(node);
+        if (!result.ok) {
+            std::cerr << "Semantic error: " << result.message << "\n";
+            continue;
         }
-        catch (const std::exception& e) {
-            std::cerr << "Error: " << e.what() << "\n";
-        }
+
+        executeParsed(node);
     }
     return 0;
 }
