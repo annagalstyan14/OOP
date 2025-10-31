@@ -1,64 +1,40 @@
+#include "Parser/Parser.h"
+#include "Semantic/Semantic.h"
+#include "Parser/CommandFactory.h"
 #include <iostream>
-#include <string>
-#include "Fetch.h"
-#include "Parser.h"
-#include "Semantic.h"
-
-void executeParsed(const CommandNode& node) {
-    std::cout << "EXECUTE: " << node.cmd;
-    if (!node.object.empty()) {
-        std::cout << " " << node.object;
-    }
-    std::cout << "\n";
-    if (!node.positionArgs.empty()) {
-        std::cout << "  positionals:\n";
-        for (const auto& p : node.positionArgs) {
-            std::cout << "    " << p << "\n";
-        }
-    }
-    if (!node.args.empty()) {
-        std::cout << "  args:\n";
-        for (const auto& a : node.args) {
-            std::cout << "    " << a << "\n";
-        }
-    }
-    if (!node.flags.empty()) {
-        std::cout << "  options:\n";
-        for (const auto& kv : node.flags) {
-            std::cout << "    " << kv.first << " = '" << kv.second << "'\n";
-        }
-    }
-    std::cout << "----\n";
-}
+#include <sstream>
+#include <memory>
+#include <vector>
 
 int main() {
-    Fetch fetch;
+    std::cout << "ppt-cli parser test (type 'exit' to quit)\n> ";
+
     std::string line;
-    std::cout << "ppt-cli (type 'exit' to quit)\n";
-    while (true) {
-        line = fetch.getCommand(std::cin);
-        if (line.empty() || line == "exit" || line == "quit") {
-            break;
+    while (std::getline(std::cin, line)) {
+        if (line.empty() || line == "exit" || line == "quit") break;
+
+        std::istringstream iss(line);
+        ppt_cli::Parser parser(iss);
+        auto command = parser.parse();
+
+        if (!command) {
+            std::cerr << "❌ Parse error: " << parser.getError() << "\n";
+        } else {
+            std::cout << "✅ Parsed OK\n";
+            
+            // Semantic (simplified)
+            std::vector<std::unique_ptr<ppt_cli::ICommand>> commands;
+            commands.push_back(std::move(command));
+            
+            try {
+                ppt_cli::SemanticAnalyzer analyzer(commands);
+                analyzer.analyze();
+                std::cout << "✅ Semantic OK\n";
+            } catch (const std::exception& e) {
+                std::cerr << "❌ " << e.what() << "\n";
+            }
         }
-
-        Tokenizer tz(line);
-        Parser parser(tz);
-        CommandNode node;
-        std::string err;
-
-        if (!parser.parseDFA(node, err)) {
-            std::cerr << "Parse error: " << err << "\n";
-            continue;
-        }
-
-        SemanticAnalyzer analyzer;
-        SemanticResult result = analyzer.analyze(node);
-        if (!result.ok) {
-            std::cerr << "Semantic error: " << result.message << "\n";
-            continue;
-        }
-
-        executeParsed(node);
+        std::cout << "> ";
     }
     return 0;
 }

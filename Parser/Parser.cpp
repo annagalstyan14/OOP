@@ -1,170 +1,148 @@
+// Parser.cpp
 #include "Parser.h"
-#include <stdexcept>
+#include "CommandFactory.h"
+#include <cctype>
+#include <algorithm>
+#include <unordered_map>
+#include <vector>
 
 namespace ppt_cli {
 
-Parser::Parser(std::istream& stream)
-    : tokenizer_(stream), current_token_(tokenizer_.peek()) {
-    initializeTransitionTable();
+// === TRANSITION TABLE ===
+const Parser::ParserState Parser::transitionTable[][13] = {
+    // 0:UNK 1:ADD 2:REM 3:EDT 4:SET 5:SLD 6:TTL 7:BLT 8:SHP 9:AT 10:NUM 11:STR 12:END
+    /* 0: START */  { ParserState::ERROR, ParserState::ACTION, ParserState::ACTION, ParserState::ACTION, ParserState::ACTION,
+                      ParserState::ERROR, ParserState::ERROR, ParserState::ERROR, ParserState::ERROR,
+                      ParserState::ERROR, ParserState::ERROR, ParserState::ERROR, ParserState::DONE },
+    /* 1: ACTION */ { ParserState::ERROR, ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::TARGET, ParserState::TARGET, ParserState::TARGET, ParserState::TARGET,
+                      ParserState::ERROR, ParserState::ARG,    ParserState::ARG,    ParserState::DONE },
+    /* 2: TARGET */ { ParserState::ERROR, ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ARG,   ParserState::ARG,    ParserState::ARG,    ParserState::DONE },
+    /* 3: ARG */    { ParserState::ERROR, ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ARG,   ParserState::ARG,    ParserState::ARG,    ParserState::DONE },
+    /* 4: DONE */   { ParserState::ERROR, ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ERROR, ParserState::ERROR,  ParserState::ERROR,  ParserState::DONE },
+    /* 5: ERROR */  { ParserState::ERROR, ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR,
+                      ParserState::ERROR, ParserState::ERROR,  ParserState::ERROR,  ParserState::ERROR }
+};
+
+// === CONSTRUCTOR ===
+Parser::Parser(std::istream& stream) : tz(stream) {}
+
+// === HELPER: toLower ===
+std::string Parser::toLower(const std::string& s) {
+    std::string out = s;
+    std::transform(out.begin(), out.end(), out.begin(),
+        [](unsigned char c) { return std::tolower(c); });
+    return out;
 }
 
+// === HELPER: classify ===
+Parser::TokenClass Parser::classify(const Token& token) {
+    if (token.getType() == TokenType::END) return TokenClass::END;
+    if (token.getType() == TokenType::NUMBER) return TokenClass::NUMBER;
+    if (token.getType() == TokenType::STRING) return TokenClass::STRING;
+    if (token.getType() != TokenType::KEYWORD) return TokenClass::UNKNOWN;
+
+    static const std::unordered_map<std::string, TokenClass> keywordMap = {
+        {"add", TokenClass::ADD}, {"remove", TokenClass::REMOVE},
+        {"edit", TokenClass::EDIT}, {"set", TokenClass::SET},
+        {"slide", TokenClass::SLIDE}, {"title", TokenClass::TITLE},
+        {"bullet", TokenClass::BULLET}, {"shape", TokenClass::SHAPE},
+        {"at", TokenClass::AT}
+    };
+
+    auto it = keywordMap.find(toLower(token.getValue()));
+    return it != keywordMap.end() ? it->second : TokenClass::UNKNOWN;
+}
+
+// === MAIN: parse ===
 std::unique_ptr<ICommand> Parser::parse() {
-    CommandType action = CommandType::Unknown;
-    ObjectType target = ObjectType::Unknown;
+    errorMsg.clear();
+    std::string action, target;
     std::vector<std::string> args;
-    current_state_ = State::START;
+    ParserState state = ParserState::START;
 
-    while (current_state_ != State::DONE && current_state_ != State::ERROR) {
-        processToken(current_token_, action, target, args);
-        current_token_ = nextToken();
-    }
-
-    if (current_state_ == State::ERROR) {
-        throw std::runtime_error("Syntax error: Invalid command sequence");
-    }
-
-    if (action == CommandType::Add && target == ObjectType::Slide) {
-        return std::make_unique<AddSlide>(args);
-    } else if (action == CommandType::Add && target == ObjectType::Shape) {
-        if (args.empty()) {
-            throw std::runtime_error("Syntax error: Shape requires a type argument");
+    while (true) {
+        Token tok;
+        try {
+            tok = tz.getToken();  // Catch exceptions here
+        } catch (const std::exception& e) {
+            errorMsg = e.what();  // e.g., "Unclosed string literal"
+            return nullptr;
         }
-        return std::make_unique<AddShape>(args[0]);
-    } else if (action == CommandType::Add && target == ObjectType::Bullet) {
-        if (args.empty()) {
-            throw std::runtime_error("Syntax error: Bullet requires a text argument");
-        }
-        return std::make_unique<AddBullet>(args[0]);
-    } else if (action == CommandType::Add && target == ObjectType::Title) {
-        if (args.empty()) {
-            throw std::runtime_error("Syntax error: Title requires a text argument");
-        }
-        return std::make_unique<AddTitle>(args[0]);
-    } else if (action == CommandType::Set && target == ObjectType::Title) {
-        if (args.empty()) {
-            throw std::runtime_error("Syntax error: Title requires a text argument");
-        }
-        return std::make_unique<SetTitle>(args[0]);
-    } else if (action == CommandType::Remove && target == ObjectType::Slide) {
-        return std::make_unique<RemoveSlide>(args);
-    } else if (action == CommandType::Edit && target == ObjectType::Slide) {
-        if (args.empty()) {
-            throw std::runtime_error("Syntax error: Edit requires a slide number");
-        }
-        return std::make_unique<EditSlide>(args[0]);
-    }
 
-    throw std::runtime_error("Syntax error: Invalid command or target");
-}
+        TokenClass cls = classify(tok);
+        int sIdx = static_cast<int>(state);
+        int tIdx = static_cast<int>(cls);
+        ParserState next = transitionTable[sIdx][tIdx];
 
-void Parser::processToken(Token token, CommandType& action, ObjectType& target, std::vector<std::string>& args) {
-    std::string token_value = token.getType() == TokenType::KEYWORD ? token.getValue() : token.getValue();
-    size_t state_idx = static_cast<size_t>(current_state_);
-    size_t token_idx = 0;
-
-    if (token.getType() == TokenType::KEYWORD) {
-        switch (token.getKeyword()) {
-            case Keyword::ADD: token_idx = 1; break;
-            case Keyword::REMOVE: token_idx = 2; break;
-            case Keyword::EDIT: token_idx = 3; break;
-            case Keyword::SET: token_idx = 4; break;
-            case Keyword::SLIDE: token_idx = 5; break;
-            case Keyword::TITLE: token_idx = 6; break;
-            case Keyword::BULLET: token_idx = 7; break;
-            case Keyword::SHAPE: token_idx = 8; break;
-            case Keyword::AT: token_idx = 9; break;
-            default: token_idx = 0; break;
+        if (next == ParserState::ERROR) {
+            errorMsg = "Unexpected '" + tok.getValue() + "' after " +
+                       (state == ParserState::START ? "nothing" :
+                        state == ParserState::ACTION ? "command" :
+                        state == ParserState::TARGET ? "object" : "argument");
+            return nullptr;
         }
-    } else if (token.getType() == TokenType::NUMBER) {
-        token_idx = 10;
-    } else if (token.getType() == TokenType::STRING) {
-        token_idx = 11;
-    } else if (token.getType() == TokenType::END) {
-        token_idx = 12;
-    } else {
-        token_idx = 0;
-    }
 
-    State next_state = transition_table_[state_idx][token_idx];
-    if (next_state == State::ERROR) {
-        current_state_ = State::ERROR;
-        return;
-    }
+        state = next;
 
-    switch (current_state_) {
-        case State::START:
-            if (token.getType() == TokenType::KEYWORD) {
-                switch (token.getKeyword()) {
-                    case Keyword::ADD: action = CommandType::Add; break;
-                    case Keyword::REMOVE: action = CommandType::Remove; break;
-                    case Keyword::EDIT: action = CommandType::Edit; break;
-                    case Keyword::SET: action = CommandType::Set; break;
-                    default: current_state_ = State::ERROR; return;
-                }
-            }
-            break;
-        case State::ACTION:
-            if (token.getType() == TokenType::KEYWORD) {
-                switch (token.getKeyword()) {
-                    case Keyword::SLIDE: target = ObjectType::Slide; break;
-                    case Keyword::TITLE: target = ObjectType::Title; break;
-                    case Keyword::BULLET: target = ObjectType::Bullet; break;
-                    case Keyword::SHAPE: target = ObjectType::Shape; break;
-                    default: current_state_ = State::ERROR; return;
-                }
-            }
-            break;
-        case State::TARGET:
-        case State::ARGUMENTS:
-            if (token.getType() == TokenType::NUMBER || token.getType() == TokenType::STRING) {
-                args.push_back(token.getValue());
-            } else if (token.getType() == TokenType::KEYWORD && token.getKeyword() == Keyword::AT) {
-                current_token_ = nextToken();
-                if (current_token_.getType() == TokenType::NUMBER) {
-                    args.push_back(current_token_.getValue());
+        // Semantic actions
+        switch (state) {
+            case ParserState::ACTION:
+                if (cls >= TokenClass::ADD && cls <= TokenClass::SET)
+                    action = toLower(tok.getValue());
+                break;
+            case ParserState::TARGET:
+                if (cls >= TokenClass::SLIDE && cls <= TokenClass::SHAPE)
+                    target = toLower(tok.getValue());
+                break;
+            case ParserState::ARG:
+                if (cls == TokenClass::AT) {
+                    Token nextTok;
+                    try {
+                        nextTok = tz.getToken();
+                    } catch (const std::exception& e) {
+                        errorMsg = e.what();
+                        return nullptr;
+                    }
+                    if (classify(nextTok) != TokenClass::NUMBER) {
+                        errorMsg = "Expected number after 'at'";
+                        return nullptr;
+                    }
+                    args.push_back(nextTok.getValue());
                 } else {
-                    current_state_ = State::ERROR;
-                    return;
+                    args.push_back(tok.getValue());
                 }
-            }
-            break;
-        default:
-            break;
-    }
-
-    current_state_ = next_state;
-}
-
-Token Parser::nextToken() {
-    return tokenizer_.next();
-}
-
-void Parser::initializeTransitionTable() {
-    for (size_t i = 0; i < kTableSize; ++i) {
-        for (size_t j = 0; j < kTableSize; ++j) {
-            transition_table_[i][j] = State::ERROR;
+                break;
+            case ParserState::DONE:
+                break;
+            default:
+                break;
         }
+
+        if (cls == TokenClass::END) break;
     }
 
-    transition_table_[static_cast<size_t>(State::START)][1] = State::ACTION; // add
-    transition_table_[static_cast<size_t>(State::START)][2] = State::ACTION; // remove
-    transition_table_[static_cast<size_t>(State::START)][3] = State::ACTION; // edit
-    transition_table_[static_cast<size_t>(State::START)][4] = State::ACTION; // set
+    if (action.empty()) {
+        errorMsg = "No command found";
+        return nullptr;
+    }
+    if (target.empty()) {
+        errorMsg = "No object specified";
+        return nullptr;
+    }
 
-    transition_table_[static_cast<size_t>(State::ACTION)][5] = State::TARGET; // slide
-    transition_table_[static_cast<size_t>(State::ACTION)][6] = State::TARGET; // title
-    transition_table_[static_cast<size_t>(State::ACTION)][7] = State::TARGET; // bullet
-    transition_table_[static_cast<size_t>(State::ACTION)][8] = State::TARGET; // shape
-
-    transition_table_[static_cast<size_t>(State::TARGET)][9] = State::ARGUMENTS; // at
-    transition_table_[static_cast<size_t>(State::TARGET)][10] = State::ARGUMENTS; // number
-    transition_table_[static_cast<size_t>(State::TARGET)][11] = State::ARGUMENTS; // string
-    transition_table_[static_cast<size_t>(State::TARGET)][12] = State::DONE; // end
-
-    transition_table_[static_cast<size_t>(State::ARGUMENTS)][9] = State::ARGUMENTS; // at
-    transition_table_[static_cast<size_t>(State::ARGUMENTS)][10] = State::ARGUMENTS; // number
-    transition_table_[static_cast<size_t>(State::ARGUMENTS)][11] = State::ARGUMENTS; // string
-    transition_table_[static_cast<size_t>(State::ARGUMENTS)][12] = State::DONE; // end
+    try {
+        return CommandFactory::createCommand(action, target, args);
+    } catch (const std::exception& e) {
+        errorMsg = e.what();
+        return nullptr;
+    }
 }
-
-}
+} // namespace ppt_cli

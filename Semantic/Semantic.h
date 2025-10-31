@@ -1,7 +1,7 @@
 #pragma once
-#include <memory>
+#include "../ICommand.h"
 #include <vector>
-#include "../Parser/Parser.h"
+#include <memory>
 
 namespace ppt_cli {
 
@@ -11,12 +11,10 @@ public:
     void analyze();
 
 private:
-    void analyzeCommand(const ICommand& command);
-    void checkSlideExists(const std::string& number);
-    void semanticError(const std::string& message);
+    void semanticError(const std::string& msg);
 
     const std::vector<std::unique_ptr<ICommand>>& commands_;
-    size_t slide_count_;
+    //size_t slide_count_ = 0;
 };
 
-}
+} // namespace ppt_cli

@@ -7,7 +7,6 @@ enum class TokenType {
     KEYWORD,
     NUMBER,
     STRING,
-    FLAG,
     SYMBOL,
     END,
     UNKNOWN
@@ -23,10 +22,10 @@ class Token {
 public:
     Token(TokenType type = TokenType::END, std::string value = "", Keyword keyword = Keyword::UNKNOWN)
         : type_(type), value_(std::move(value)), keyword_(keyword) {}
-    
-    TokenType getType() const { return type_; }
-    std::string getValue() const { return value_; }
-    Keyword getKeyword() const { return keyword_; }
+
+    TokenType getType() const noexcept { return type_; }
+    const std::string& getValue() const noexcept { return value_; }
+    Keyword getKeyword() const noexcept { return keyword_; }
 
 private:
     TokenType type_;
@@ -34,4 +33,4 @@ private:
     Keyword keyword_;
 };
 
-}
+} // namespace ppt_cli

@@ -1,191 +1,115 @@
 #include "Tokenizer.h"
 #include <cctype>
 #include <map>
-
+#include <sstream>
+#include <iostream>
 namespace ppt_cli {
 
 namespace {
-const std::map<std::string, Keyword> keyword_map = {
-    {"add", Keyword::ADD},
-    {"remove", Keyword::REMOVE},
-    {"edit", Keyword::EDIT},
-    {"set", Keyword::SET},
-    {"at", Keyword::AT},
-    {"slide", Keyword::SLIDE},
-    {"title", Keyword::TITLE},
-    {"bullet", Keyword::BULLET},
+const std::map<std::string, Keyword> kKeywordMap = {
+    {"add", Keyword::ADD}, {"remove", Keyword::REMOVE},
+    {"edit", Keyword::EDIT}, {"set", Keyword::SET},
+    {"at", Keyword::AT}, {"slide", Keyword::SLIDE},
+    {"title", Keyword::TITLE}, {"bullet", Keyword::BULLET},
     {"shape", Keyword::SHAPE}
 };
 }
 
-Tokenizer::Tokenizer(const std::string& input)
-    : stream_(nullptr), input_string_(input), string_stream_(std::make_unique<std::istringstream>(input)),
-      buffer_pos_(0), buffer_size_(0), current_token_(TokenType::END) {
-    stream_ = string_stream_.get();
-    advance();
-}
-
-Tokenizer::Tokenizer(std::istream& input)
-    : stream_(&input), string_stream_(nullptr), buffer_pos_(0), buffer_size_(0), current_token_(TokenType::END) {
-    std::string line;
-    if (!std::getline(input, line)) {
-        input_string_ = "";
-    } else {
-        input_string_ = line;
-    }
-    string_stream_ = std::make_unique<std::istringstream>(input_string_);
-    stream_ = string_stream_.get();
-    advance();
-}
-
-Tokenizer::Tokenizer()
-    : stream_(&std::cin), string_stream_(nullptr), buffer_pos_(0), buffer_size_(0), current_token_(TokenType::END) {
-    std::string line;
-    if (!std::getline(std::cin, line)) {
-        if (std::cin.eof() || std::cin.fail()) {
-            input_string_ = "";
-            std::cin.clear();
+Tokenizer::Tokenizer(std::istream& input) {
+    if (&input == &std::cin) {
+        std::string line;
+        if (std::getline(input, line)) {
+            owned_stream_ = std::make_unique<std::istringstream>(line);
+            stream_ = owned_stream_.get();
+            buffer_ = line;
+        } else {
+            stream_ = nullptr;
         }
     } else {
-        input_string_ = line;
+        stream_ = &input;
+        std::ostringstream oss;
+        oss << input.rdbuf();
+        buffer_ = oss.str();
     }
-    string_stream_ = std::make_unique<std::istringstream>(input_string_);
-    stream_ = string_stream_.get();
-    advance();
+    pos_ = 0;
+    skipWhitespace();
 }
 
-Token Tokenizer::peek() const {
-    return current_token_;
+Token Tokenizer::getToken() {
+    skipWhitespace();
+    if (pos_ >= buffer_.size()) return Token(TokenType::END);
+
+    char c = buffer_[pos_];
+
+    if (c == '"' || c == '\'') {
+        return Token(TokenType::STRING, readString());
+    }
+    if (std::isdigit(c)) {
+        return Token(TokenType::NUMBER, readNumber());
+    }
+    if (std::isalpha(c) || c == '-') {
+        std::string word = readWord();
+        auto it = kKeywordMap.find(word);
+        Keyword kw = it != kKeywordMap.end() ? it->second : Keyword::UNKNOWN;
+        TokenType type = (kw != Keyword::UNKNOWN) ? TokenType::KEYWORD : TokenType::UNKNOWN;
+        return Token(type, word, kw);
+    }
+    if (c == '=' || c == ';' || c == '{' || c == '}' || c == '(' || c == ')') {
+        pos_++;
+        return Token(TokenType::SYMBOL, std::string(1, c));
+    }
+
+    pos_++;
+    return Token(TokenType::UNKNOWN, std::string(1, c));
 }
 
-Token Tokenizer::next() {
-    Token result = current_token_;
-    advance();
-    return result;
-}
-
-bool Tokenizer::isEnd() const {
-    return current_token_.getType() == TokenType::END;
+bool Tokenizer::eof() const {
+    return pos_ >= buffer_.size();
 }
 
 char Tokenizer::peekChar() {
-    if (buffer_pos_ >= buffer_size_ && !fillBuffer()) {
-        return '\0';
-    }
-    return buffer_[buffer_pos_];
+    return (pos_ < buffer_.size()) ? buffer_[pos_] : '\0';
 }
 
 char Tokenizer::getChar() {
-    if (buffer_pos_ >= buffer_size_ && !fillBuffer()) {
-        return '\0';
-    }
-    return buffer_[buffer_pos_++];
-}
-
-Keyword Tokenizer::lookupKeyword(const std::string& word) const {
-    auto it = keyword_map.find(word);
-    return it != keyword_map.end() ? it->second : Keyword::UNKNOWN;
-}
-
-std::string Tokenizer::readWord() {
-    std::string word;
-    char c = peekChar();
-    while (std::isalpha(c) || c == '-') {
-        word += getChar();
-        c = peekChar();
-    }
-    return word;
-}
-
-std::string Tokenizer::readNumber() {
-    std::string number;
-    char c = peekChar();
-    while (std::isdigit(c) || c == '.') {
-        number += getChar();
-        c = peekChar();
-    }
-    return number;
-}
-
-std::string Tokenizer::readString() {
-    std::string str;
-    char quote = getChar();
-    char c = peekChar();
-    while (c != quote && c != '\0') {
-        str += getChar();
-        c = peekChar();
-    }
-    if (c == quote) {
-        getChar();
-    }
-    return str;
+    return (pos_ < buffer_.size()) ? buffer_[pos_++] : '\0';
 }
 
 void Tokenizer::skipWhitespace() {
-    char c = peekChar();
-    while (std::isspace(c)) {
-        getChar();
-        c = peekChar();
-    }
+    while (pos_ < buffer_.size() && std::isspace(buffer_[pos_])) pos_++;
 }
 
-void Tokenizer::advance() {
-    skipWhitespace();
-    char c = peekChar();
-    if (c == '\0') {
-        current_token_ = Token(TokenType::END);
-        return;
-    }
-
-    if (c == '=' || c == ';' || c == '{' || c == '}' || c == '(' || c == ')') {
-        std::string symbol(1, getChar());
-        current_token_ = Token(TokenType::SYMBOL, symbol);
-        return;
-    }
-
-    if (c == '"' || c == '\'') {
-        std::string str = readString();
-        current_token_ = Token(TokenType::STRING, str);
-        return;
-    }
-
-    if (std::isdigit(c)) {
-        std::string number = readNumber();
-        current_token_ = Token(TokenType::NUMBER, number);
-        return;
-    }
-
-    if (std::isalpha(c) || c == '-') {
-        std::string word = readWord();
-        Keyword keyword = lookupKeyword(word);
-        if (keyword != Keyword::UNKNOWN) {
-            current_token_ = Token(TokenType::KEYWORD, word, keyword);
-        } else {
-            current_token_ = Token(TokenType::UNKNOWN, word);
-        }
-        return;
-    }
-
-    std::string unknown(1, getChar());
-    current_token_ = Token(TokenType::UNKNOWN, unknown);
+std::string Tokenizer::readWord() {
+    size_t start = pos_;
+    while (pos_ < buffer_.size() && (std::isalpha(buffer_[pos_]) || buffer_[pos_] == '-')) pos_++;
+    return buffer_.substr(start, pos_ - start);
 }
 
-bool Tokenizer::fillBuffer() {
-    if (!stream_ || stream_->eof() || stream_->fail()) {
-        buffer_size_ = 0;
-        buffer_pos_ = 0;
-        return false;
-    }
-    stream_->read(buffer_, kBufferSize);
-    buffer_size_ = stream_->gcount();
-    buffer_pos_ = 0;
-    return buffer_size_ > 0;
+std::string Tokenizer::readNumber() {
+    size_t start = pos_;
+    while (pos_ < buffer_.size() && (std::isdigit(buffer_[pos_]) || buffer_[pos_] == '.')) pos_++;
+    return buffer_.substr(start, pos_ - start);
 }
 
-void Tokenizer::checkLength() const {
-    if (buffer_pos_ > buffer_size_) {
-        std::cerr << "Warning: Buffer position exceeds size\n";
+std::string Tokenizer::readString() {
+    char quote = getChar();
+    if (quote != '"' && quote != '\'') return "";
+
+    size_t start = pos_;
+    while (pos_ < buffer_.size() && buffer_[pos_] != quote) pos_++;
+    
+    if (pos_ >= buffer_.size()) {
+        throw std::runtime_error("Unclosed string literal");
     }
+
+    std::string str = buffer_.substr(start, pos_ - start);
+    pos_++;  // skip closing quote
+    return str;
 }
 
+Keyword Tokenizer::lookupKeyword(const std::string& word) const {
+    auto it = kKeywordMap.find(word);
+    return it != kKeywordMap.end() ? it->second : Keyword::UNKNOWN;
 }
+
+} // namespace ppt_cli
