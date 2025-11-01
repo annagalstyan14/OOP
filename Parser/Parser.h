@@ -1,4 +1,3 @@
-// Parser/Parser.h
 #pragma once
 #include "../Tokenizer/Tokenizer.h"
 #include "../Command/ICommand.h"
@@ -21,8 +20,8 @@ private:
     enum class ParserState { START, ACTION, TARGET, ARG, DONE, ERROR, COUNT };
     enum class TokenClass {
         UNKNOWN, ADD, REMOVE, LIST, EDIT, SET,
-        SLIDE, TEXT, TITLE, BULLET, SHAPE, CURRENT, AT,
-        NUMBER, STRING, END
+        SLIDE, TEXT, TITLE, BULLET, SHAPE, AT,
+        NUMBER, STRING, END   // ADDED NUMBER, STRING
     };
 
     static TokenClass classify(const Token& token);

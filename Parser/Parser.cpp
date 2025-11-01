@@ -9,9 +9,9 @@
 namespace ppt_cli {
 
 // ------------------- TRANSITION TABLE (6 × 13) -------------------
+// Columns: 0=UNK,1=ADD,2=REMOVE,3=LIST,4=EDIT,5=SET,
+//          6=SLIDE,7=TEXT,8=TITLE,9=BULLET,10=SHAPE,11=AT,12=END
 const Parser::ParserState Parser::transitionTable[][13] = {
-    // 0=UNK,1=ADD,2=REMOVE,3=LIST,4=EDIT,5=SET,
-    // 6=SLIDE,7=TEXT,8=TITLE,9=BULLET,10=SHAPE,11=AT,12=END
     /* START */ { ParserState::ERROR, ParserState::ACTION, ParserState::ACTION,
                   ParserState::ACTION, ParserState::ACTION, ParserState::ACTION,
                   ParserState::ERROR, ParserState::ERROR, ParserState::ERROR,
@@ -71,8 +71,7 @@ Parser::TokenClass Parser::classify(const Token& token) {
         {"list", TokenClass::LIST}, {"edit", TokenClass::EDIT}, {"set", TokenClass::SET},
         {"slide", TokenClass::SLIDE}, {"text", TokenClass::TEXT},
         {"title", TokenClass::TITLE}, {"bullet", TokenClass::BULLET},
-        {"shape", TokenClass::SHAPE}, {"current", TokenClass::CURRENT},
-        {"at", TokenClass::AT}
+        {"shape", TokenClass::SHAPE}, {"at", TokenClass::AT}
     };
     auto it = map.find(toLower(token.getValue()));
     return it != map.end() ? it->second : TokenClass::UNKNOWN;
@@ -110,8 +109,6 @@ std::unique_ptr<ICommand> Parser::parse() {
             case ParserState::TARGET:
                 if (cls >= TokenClass::SLIDE && cls <= TokenClass::SHAPE)
                     target = toLower(tok.getValue());
-                else if (cls == TokenClass::CURRENT)
-                    target = "current";
                 break;
             case ParserState::ARG:
                 if (cls == TokenClass::AT) {
