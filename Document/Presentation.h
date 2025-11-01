@@ -1,12 +1,9 @@
-// Document/Presentation.h
 #ifndef PRESENTATION_H_
 #define PRESENTATION_H_
 
 #include "Slide.h"
 #include <vector>
 #include <memory>
-#include <string>
-#include <iostream>
 
 namespace ppt_cli {
 
@@ -17,7 +14,6 @@ private:
 
 public:
     Presentation() = default;
-
     Slide* addSlide(const std::string& type = "blank");
     void removeSlide(int id);
     void removeSlideAt(size_t index);
@@ -25,12 +21,10 @@ public:
     const Slide* getSlide(int id) const;
     Slide* getSlideAt(size_t index);
     const Slide* getSlideAt(size_t index) const;
-    size_t size() const { return slides.size(); }
-
+    size_t size() const;
     void display() const;
     void displaySlide(int id) const;
     void displaySlideAt(size_t index) const;
-
     int getFirstSlideId() const;
     int getLastSlideId() const;
 };

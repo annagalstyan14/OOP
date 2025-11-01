@@ -1,6 +1,7 @@
+// Parser/Parser.h
 #pragma once
 #include "../Tokenizer/Tokenizer.h"
-#include "../ICommand.h"
+#include "../Command/ICommand.h"
 #include "CommandFactory.h"
 #include <memory>
 #include <string>
@@ -19,8 +20,8 @@ public:
 private:
     enum class ParserState { START, ACTION, TARGET, ARG, DONE, ERROR, COUNT };
     enum class TokenClass {
-        UNKNOWN, ADD, REMOVE, EDIT, SET,
-        SLIDE, TITLE, BULLET, SHAPE, AT,
+        UNKNOWN, ADD, REMOVE, LIST, EDIT, SET,
+        SLIDE, TEXT, TITLE, BULLET, SHAPE, CURRENT, AT,
         NUMBER, STRING, END
     };
 
@@ -30,6 +31,7 @@ private:
     Tokenizer tz;
     std::string errorMsg;
 
+    // 6 states × 13 token classes (original)
     static const ParserState transitionTable[static_cast<int>(ParserState::COUNT)][13];
 };
 

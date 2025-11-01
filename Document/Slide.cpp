@@ -1,10 +1,19 @@
 #include "Slide.h"
-#include "SlideObject.h"
-#include <stdexcept>
 #include <iostream>
+#include <stdexcept>
 
 namespace ppt_cli {
 
+    Slide::Slide(int id, std::string text)
+    : id(id), text(std::move(text)) {}
+
+    Slide::Slide(const Slide& other)
+    : id(other.id), objects(other.objects), text(other.text), textAreas(other.textAreas) {}
+
+int Slide::getId() const { return id; }
+void Slide::setId(int newId) { id = newId; }
+const std::string& Slide::getText() const { return text; }
+const std::vector<SlideObject>& Slide::getObjects() const { return objects; }
 
 void Slide::addObject(const SlideObject& obj) {
     objects.push_back(obj);
@@ -12,10 +21,9 @@ void Slide::addObject(const SlideObject& obj) {
 
 void Slide::addText(const std::string& area, const std::string& content) {
     if (textAreas.count(area))
-        throw std::runtime_error("Text area '" + area + "' already exists. Use edit to modify.");
-    TextArea newArea;
-    newArea.content = content;
-    textAreas[area] = newArea;
+        throw std::runtime_error("Text area '" + area + "' already exists.");
+    TextArea ta; ta.content = content;
+    textAreas[area] = ta;
 }
 
 void Slide::editText(const std::string& area, const std::string& newContent) {
@@ -30,15 +38,16 @@ void Slide::removeText(const std::string& area) {
     textAreas.erase(area);
 }
 
-void Slide::setFont(const std::string& area, const std::string& font, int size, const std::string& color) {
+void Slide::setFont(const std::string& area,
+                    const std::string& font,
+                    int size,
+                    const std::string& color) {
     if (!textAreas.count(area))
         throw std::runtime_error("Text area '" + area + "' does not exist.");
-    if (!font.empty())
-        textAreas[area].fontFamily = font;
-    if (size > 0)
-        textAreas[area].fontSize = size;
-    if (!color.empty())
-        textAreas[area].color = color;
+    auto& ta = textAreas[area];
+    if (!font.empty()) ta.fontFamily = font;
+    if (size > 0)      ta.fontSize   = size;
+    if (!color.empty())ta.color      = color;
 }
 
 void Slide::alignText(const std::string& area, const std::string& alignment) {
@@ -49,18 +58,15 @@ void Slide::alignText(const std::string& area, const std::string& alignment) {
 
 void Slide::display() const {
     std::cout << "Slide #" << id << " (" << text << ")\n";
-
     if (!textAreas.empty()) {
         std::cout << " Text Areas:\n";
-        for (const auto& [area, textArea] : textAreas) {
-            std::cout << "  [" << area << "]: \"" << textArea.content << "\" "
-                      << "(font: " << textArea.fontFamily << ", "
-                      << textArea.fontSize << "pt, "
-                      << textArea.color << ", "
-                      << textArea.alignment << ")\n";
+        for (const auto& [a, ta] : textAreas) {
+            std::cout << "  [" << a << "]: \"" << ta.content << "\" "
+                      << "(font: " << ta.fontFamily << ", "
+                      << ta.fontSize << "pt, " << ta.color << ", "
+                      << ta.alignment << ")\n";
         }
     }
-
     if (!objects.empty()) {
         std::cout << " Objects:\n";
         for (const auto& obj : objects) {
@@ -69,7 +75,6 @@ void Slide::display() const {
                       << ", Color: " << obj.color << ")\n";
         }
     }
-
     if (textAreas.empty() && objects.empty())
         std::cout << " (empty)\n";
 }

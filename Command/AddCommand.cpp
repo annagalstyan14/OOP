@@ -7,7 +7,7 @@
 
 namespace ppt_cli {
 
-AddCommand::AddCommand(std::vector<ArgPtr> args) : args_(std::move(args)) {}
+AddCommand::AddCommand(std::vector<ArgPtr>&& args) : args_(std::move(args)) {}
 
 void AddCommand::execute(Presentation& pres) {
     if (args_.size() < 2) {

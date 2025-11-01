@@ -1,6 +1,5 @@
-// Semantic/Semantic.cpp
 #include "Semantic.h"
-#include "../ICommand.h"
+#include "../Command/ICommand.h"
 #include <iostream>
 #include <stdexcept>
 

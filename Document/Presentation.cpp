@@ -1,6 +1,7 @@
 #include "Presentation.h"
 #include <algorithm>
 #include <stdexcept>
+#include <iostream>
 
 namespace ppt_cli {
 
@@ -14,13 +15,13 @@ void Presentation::removeSlide(int id) {
     auto it = std::remove_if(slides.begin(), slides.end(),
         [id](const auto& s) { return s->getId() == id; });
     if (it == slides.end())
-        throw std::runtime_error("Slide with id " + std::to_string(id) + " not found.");
+        throw std::runtime_error("Slide not found.");
     slides.erase(it, slides.end());
 }
 
 void Presentation::removeSlideAt(size_t index) {
     if (index >= slides.size())
-        throw std::runtime_error("Slide index out of range.");
+        throw std::runtime_error("Index out of range.");
     slides.erase(slides.begin() + index);
 }
 
@@ -44,30 +45,26 @@ const Slide* Presentation::getSlideAt(size_t index) const {
     return (index < slides.size()) ? slides[index].get() : nullptr;
 }
 
+size_t Presentation::size() const { return slides.size(); }
+
 void Presentation::display() const {
     std::cout << "=== Presentation (" << slides.size() << " slides) ===\n";
-    for (const auto& slide : slides) {
-        slide->display();
+    for (const auto& s : slides) {
+        s->display();
         std::cout << "\n";
     }
 }
 
 void Presentation::displaySlide(int id) const {
     const Slide* s = getSlide(id);
-    if (!s) {
-        std::cout << "Slide #" << id << " not found.\n";
-        return;
-    }
-    s->display();
+    if (!s) std::cout << "Slide #" << id << " not found.\n";
+    else s->display();
 }
 
 void Presentation::displaySlideAt(size_t index) const {
     const Slide* s = getSlideAt(index);
-    if (!s) {
-        std::cout << "Slide at index " << index << " not found.\n";
-        return;
-    }
-    s->display();
+    if (!s) std::cout << "Slide at index " << index << " not found.\n";
+    else s->display();
 }
 
 int Presentation::getFirstSlideId() const {

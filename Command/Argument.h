@@ -1,4 +1,3 @@
-// Command/Argument.h
 #ifndef ARGUMENT_H_
 #define ARGUMENT_H_
 
@@ -12,7 +11,6 @@ namespace ppt_cli {
 class Argument {
 public:
     using Value = std::variant<std::string, double>;
-
     explicit Argument(std::string s) : value_(std::move(s)) {}
     explicit Argument(double d)       : value_(d) {}
 
@@ -20,20 +18,12 @@ public:
     bool isNumber() const { return std::holds_alternative<double>(value_); }
 
     const std::string& asString() const {
-        if (!isString())
-            throw std::runtime_error("Argument is not a string");
+        if (!isString()) throw std::runtime_error("Not a string");
         return std::get<std::string>(value_);
     }
-
     double asNumber() const {
-        if (!isNumber())
-            throw std::runtime_error("Argument is not a number");
+        if (!isNumber()) throw std::runtime_error("Not a number");
         return std::get<double>(value_);
-    }
-
-    std::string toString() const {
-        if (isString()) return asString();
-        return std::to_string(asNumber());
     }
 
 private:
@@ -44,4 +34,4 @@ using ArgPtr = std::unique_ptr<Argument>;
 
 } // namespace ppt_cli
 
-#endif // ARGUMENT_H_
+#endif

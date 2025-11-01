@@ -1,17 +1,22 @@
-#pragma once
-#include "../ICommand.h"
-#include <memory>
+#ifndef COMMAND_FACTORY_H_
+#define COMMAND_FACTORY_H_
+
+#include "../Command/ICommand.h"
+#include "../Command/Argument.h"
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace ppt_cli {
 
 class CommandFactory {
 public:
-    static std::unique_ptr<ICommand> createCommand(  // ← MATCH NAME
+    static std::unique_ptr<ICommand> createCommand(
         const std::string& action,
         const std::string& target,
-        const std::vector<std::string>& args);
+        std::vector<ArgPtr>&& args);
 };
 
 } // namespace ppt_cli
+
+#endif // COMMAND_FACTORY_H_
