@@ -13,8 +13,8 @@ enum class TokenType {
 };
 
 enum class Keyword {
-    ADD, REMOVE, EDIT, SET, AT,
-    SLIDE, TITLE, BULLET, SHAPE,
+    ADD, REMOVE, LIST, EDIT, SET, AT,
+    SLIDE, TEXT, TITLE, BULLET, SHAPE,
     UNKNOWN
 };
 

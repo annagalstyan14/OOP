@@ -18,10 +18,11 @@ public:
 
 private:
     enum class ParserState { START, ACTION, TARGET, ARG, DONE, ERROR, COUNT };
+
     enum class TokenClass {
         UNKNOWN, ADD, REMOVE, LIST, EDIT, SET,
         SLIDE, TEXT, TITLE, BULLET, SHAPE, AT,
-        NUMBER, STRING, END   // ADDED NUMBER, STRING
+        NUMBER, STRING, END
     };
 
     static TokenClass classify(const Token& token);
@@ -30,8 +31,9 @@ private:
     Tokenizer tz;
     std::string errorMsg;
 
-    // 6 states × 13 token classes (original)
-    static const ParserState transitionTable[static_cast<int>(ParserState::COUNT)][13];
+    // 6 states × 15 token classes
+    static constexpr size_t TOKEN_CLASS_COUNT = 15;
+    static const ParserState transitionTable[static_cast<int>(ParserState::COUNT)][TOKEN_CLASS_COUNT];
 };
 
 } // namespace ppt_cli

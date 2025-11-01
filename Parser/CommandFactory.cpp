@@ -7,12 +7,15 @@
 
 namespace ppt_cli {
 
+// ← REMOVE 'static' HERE
 std::unique_ptr<ICommand> CommandFactory::createCommand(
     const std::string& action,
-    const std::string& target,
-    std::vector<ArgPtr>&& args)   // <-- rvalue reference
+    std::vector<ArgPtr>&& args)
 {
     if (action == "add") {
+        if (args.empty()) {
+            throw std::runtime_error("add requires a target (e.g. slide, text)");
+        }
         return std::make_unique<AddCommand>(std::move(args));
     }
     if (action == "remove") {
@@ -22,7 +25,7 @@ std::unique_ptr<ICommand> CommandFactory::createCommand(
         return std::make_unique<ListCommand>(std::move(args));
     }
 
-    throw std::runtime_error("Unknown command: " + action + " " + target);
+    throw std::runtime_error("Unknown command: " + action);
 }
 
 } // namespace ppt_cli

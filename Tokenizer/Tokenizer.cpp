@@ -3,13 +3,16 @@
 #include <map>
 #include <sstream>
 #include <iostream>
+
 namespace ppt_cli {
 
 namespace {
 const std::map<std::string, Keyword> kKeywordMap = {
     {"add", Keyword::ADD}, {"remove", Keyword::REMOVE},
+    {"list", Keyword::LIST},      // ← ADDED
     {"edit", Keyword::EDIT}, {"set", Keyword::SET},
     {"at", Keyword::AT}, {"slide", Keyword::SLIDE},
+    {"text", Keyword::TEXT},      // ← ADDED
     {"title", Keyword::TITLE}, {"bullet", Keyword::BULLET},
     {"shape", Keyword::SHAPE}
 };

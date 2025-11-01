@@ -1,6 +1,7 @@
 #include "Parser/Parser.h"
 #include "Semantic/Semantic.h"
 #include "Parser/CommandFactory.h"
+#include "Document/Presentation.h"   // ← ADD THIS
 #include <iostream>
 #include <sstream>
 #include <memory>
@@ -8,6 +9,8 @@
 
 int main() {
     std::cout << "ppt-cli parser test (type 'exit' to quit)\n> ";
+
+    ppt_cli::Presentation presentation;  // ← CREATE PRESENTATION
 
     std::string line;
     while (std::getline(std::cin, line)) {
@@ -18,20 +21,24 @@ int main() {
         auto command = parser.parse();
 
         if (!command) {
-            std::cerr << "❌ Parse error: " << parser.getError() << "\n";
+            std::cerr << "Parse error: " << parser.getError() << "\n";
         } else {
-            std::cout << "✅ Parsed OK\n";
+            std::cout << "Parsed OK\n";
             
-            // Semantic (simplified)
+            // Semantic analysis
             std::vector<std::unique_ptr<ppt_cli::ICommand>> commands;
             commands.push_back(std::move(command));
             
             try {
                 ppt_cli::SemanticAnalyzer analyzer(commands);
                 analyzer.analyze();
-                std::cout << "✅ Semantic OK\n";
+                std::cout << "Semantic OK\n";
+
+                // ← EXECUTE THE COMMAND!
+                commands[0]->execute(presentation);
+
             } catch (const std::exception& e) {
-                std::cerr << "❌ " << e.what() << "\n";
+                std::cerr << e.what() << "\n";
             }
         }
         std::cout << "> ";
