@@ -13,9 +13,10 @@ using ArgPtr = std::unique_ptr<Argument>;
 
 class CommandFactory {
 public:
-    static std::unique_ptr<ICommand> createCommand(
-        const std::string& action,
-        std::vector<ArgPtr>&& args);  // ← target removed
+static std::unique_ptr<ICommand> createCommand(
+    const std::string& action,
+    const std::string& target,
+    std::vector<ArgPtr>&& args);
 };
 
 } // namespace ppt_cli

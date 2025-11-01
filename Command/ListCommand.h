@@ -6,15 +6,17 @@
 #include "../Document/Presentation.h"
 #include <vector>
 #include <memory>
+#include <string>
 
 namespace ppt_cli {
 
 class ListCommand : public ICommand {
 public:
-    explicit ListCommand(std::vector<ArgPtr>&& args);
+    ListCommand(const std::string& target, std::vector<ArgPtr>&& args);
     void execute(Presentation& pres) override;
 
 private:
+    std::string target_;
     std::vector<ArgPtr> args_;
 };
 

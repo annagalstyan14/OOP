@@ -6,15 +6,17 @@
 #include "../Document/Presentation.h"
 #include <vector>
 #include <memory>
+#include <string>
 
 namespace ppt_cli {
 
 class RemoveCommand : public ICommand {
 public:
-    explicit RemoveCommand(std::vector<ArgPtr>&& args);
+    RemoveCommand(const std::string& target, std::vector<ArgPtr>&& args);
     void execute(Presentation& pres) override;
 
 private:
+    std::string target_;
     std::vector<ArgPtr> args_;
 };
 

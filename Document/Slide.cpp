@@ -14,6 +14,7 @@ int Slide::getId() const { return id; }
 void Slide::setId(int newId) { id = newId; }
 const std::string& Slide::getText() const { return text; }
 const std::vector<SlideObject>& Slide::getObjects() const { return objects; }
+const std::unordered_map<std::string, TextArea>& Slide::getTextAreas() const { return textAreas; }
 
 void Slide::addObject(const SlideObject& obj) {
     objects.push_back(obj);

@@ -19,9 +19,9 @@ struct TextArea {
 class Slide {
 private:
     int id;
-    std::vector<SlideObject> objects;
     std::string text;
     std::unordered_map<std::string, TextArea> textAreas;
+    std::vector<SlideObject> objects;
 
 public:
     explicit Slide(int id, std::string text = "blank");
@@ -31,6 +31,7 @@ public:
     void setId(int newId);
     const std::string& getText() const;
     const std::vector<SlideObject>& getObjects() const;
+    const std::unordered_map<std::string, TextArea>& getTextAreas() const;
 
     void addObject(const SlideObject& obj);
     void addText(const std::string& area, const std::string& content);
