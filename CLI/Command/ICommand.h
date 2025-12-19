@@ -1,10 +1,11 @@
 #ifndef ICOMMAND_H_
 #define ICOMMAND_H_
 
+#include "../../Action/Editor.h" // Include the full definition of Editor
+
 namespace ppt_cli {
 
 class Presentation;
-class Editor;
 
 class ICommand {
 public:

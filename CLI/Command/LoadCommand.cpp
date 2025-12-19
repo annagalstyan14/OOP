@@ -1,8 +1,10 @@
 #include "LoadCommand.h"
 #include "../../Document/Presentation.h"
-#include "../../Action/Editor.h"
+#include "../../Action/Editor.h" // Ensure the full definition of Editor is included
 #include "../../Serialization/JsonDeserializer.h"
 #include <iostream>
+
+using ppt::Editor; // Use the correct namespace for Editor
 
 namespace ppt_cli {
 
