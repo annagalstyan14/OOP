@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Build the PPT CLI
+# Build and run unit tests
 # Dependencies:
 #   Ubuntu: sudo apt install nlohmann-json3-dev
 #   macOS:  brew install nlohmann-json
@@ -14,14 +14,14 @@ else
     JSON_INCLUDE="-I/usr/include"
 fi
 
-echo "Building PPT CLI..."
+echo "Building unit tests..."
 
-g++ -std=c++17 -Wall -Wextra -O2 \
+g++ -std=c++17 -Wall -Wextra -g \
     $JSON_INCLUDE \
-    main.cpp \
-    Controller/Controller.cpp \
-    Parser/Parser.cpp \
+    -I. \
+    Tests/TestRunner.cpp \
     Parser/Tokenizer.cpp \
+    Parser/Parser.cpp \
     Command/CommandFactory.cpp \
     Command/Argument.cpp \
     Document/Presentation.cpp \
@@ -32,10 +32,13 @@ g++ -std=c++17 -Wall -Wextra -O2 \
     Document/Line.cpp \
     Document/TextObject.cpp \
     Rendering/SVGPainter.cpp \
-    -o ppt-cli
+    -o run_tests
 
 if [ $? -eq 0 ]; then
-    echo "Build complete. Run: ./ppt-cli"
+    echo "Build complete. Running tests..."
+    echo ""
+    ./run_tests
+    exit $?
 else
     echo "Build failed!"
     exit 1

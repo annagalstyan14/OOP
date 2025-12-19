@@ -1,7 +1,7 @@
-#include "CLI/Controller/Controller.h"
+#include "Controller/Controller.h"
 
 int main() {
-    ppt_cli::Controller controller;
+    ppt::Controller controller;
     controller.start();
     return 0;
 }

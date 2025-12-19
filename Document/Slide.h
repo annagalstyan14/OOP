@@ -1,72 +1,67 @@
 #ifndef SLIDE_H_
 #define SLIDE_H_
 
-#include "Elements/IShape.h"
-#include "Elements/Shape.h"
+#include "SlideObject.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "Line.h"
+#include "TextObject.h"
 #include <vector>
-#include <string>
-#include <unordered_map>
 #include <memory>
+#include <string>
 
-namespace ppt_cli {
-
-struct TextArea {
-    std::string content;
-    std::string fontFamily = "Arial";
-    int fontSize = 12;
-    std::string color = "black";
-    std::string alignment = "left";
-};
+namespace ppt {
 
 class Slide {
 private:
     int id_;
     std::string title_;
-    std::vector<std::unique_ptr<IShape>> shapes_;
-    std::unordered_map<std::string, TextArea> textAreas_;
-    int nextShapeId_ = 1;
+    std::vector<std::unique_ptr<SlideObject>> objects_;
+    int nextObjectId_ = 1;
 
 public:
     explicit Slide(int id, const std::string& title = "Untitled");
     Slide(const Slide& other);
     Slide& operator=(const Slide& other);
+    Slide(Slide&& other) noexcept = default;
+    Slide& operator=(Slide&& other) noexcept = default;
     ~Slide() = default;
 
     // Getters
     int getId() const { return id_; }
     const std::string& getTitle() const { return title_; }
-    const std::string& getText() const { return title_; }
-    const std::vector<std::unique_ptr<IShape>>& getShapes() const { return shapes_; }
-    std::vector<std::unique_ptr<IShape>>& getShapes() { return shapes_; }
-    const std::unordered_map<std::string, TextArea>& getTextAreas() const { return textAreas_; }
+    size_t objectCount() const { return objects_.size(); }
+    int getNextObjectId() const { return nextObjectId_; }
 
     // Setters
-    void setId(int newId) { id_ = newId; }
+    void setId(int id) { id_ = id; }
     void setTitle(const std::string& title) { title_ = title; }
+    void setNextObjectId(int id) { nextObjectId_ = id; }
 
-    // Shape operations
-    IShape* addShape(const std::string& name, ShapeType type = ShapeType::RECTANGLE, 
-                     const std::string& color = "black");
-    IShape* addShape(std::unique_ptr<IShape> shape);
-    IShape* getShape(int shapeId);
-    const IShape* getShape(int shapeId) const;
-    IShape* getShapeAt(size_t index);
-    bool removeShape(int shapeId);
-    bool removeShapeAt(size_t index);
-    size_t shapeCount() const { return shapes_.size(); }
+    // Object access
+    const std::vector<std::unique_ptr<SlideObject>>& getObjects() const { return objects_; }
+    std::vector<std::unique_ptr<SlideObject>>& getObjects() { return objects_; }
+    
+    SlideObject* getObject(int objectId);
+    const SlideObject* getObject(int objectId) const;
+    SlideObject* getObjectAt(size_t index);
+    const SlideObject* getObjectAt(size_t index) const;
 
-    // Text operations
-    void addText(const std::string& area, const std::string& content);
-    void editText(const std::string& area, const std::string& newContent);
-    void removeText(const std::string& area);
-    void setFont(const std::string& area, const std::string& font, int size, const std::string& color);
-    void alignText(const std::string& area, const std::string& alignment);
-    bool hasTextArea(const std::string& area) const;
+    // Object operations
+    SlideObject* addObject(ObjectType type, const std::string& name, 
+                           const std::string& color = "black");
+    SlideObject* addObject(std::unique_ptr<SlideObject> obj);
+    bool removeObject(int objectId);
+    bool removeObjectAt(size_t index);
+
+    // Text-specific operations
+    TextObject* addText(const std::string& name, const std::string& content, 
+                        const std::string& color = "black");
 
     // Display
     void display(std::ostream& os = std::cout) const;
 };
 
-} // namespace ppt_cli
+} // namespace ppt
 
 #endif // SLIDE_H_

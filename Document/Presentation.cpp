@@ -1,12 +1,19 @@
 #include "Presentation.h"
 #include <algorithm>
-#include <iostream>
 
-namespace ppt_cli {
+namespace ppt {
 
 Slide* Presentation::addSlide(const std::string& title) {
-    slides_.emplace_back(nextId_++, title);
+    slides_.emplace_back(nextSlideId_++, title);
     return &slides_.back();
+}
+
+Slide* Presentation::insertSlide(size_t index, const std::string& title) {
+    if (index > slides_.size()) {
+        index = slides_.size();
+    }
+    auto it = slides_.emplace(slides_.begin() + index, nextSlideId_++, title);
+    return &(*it);
 }
 
 bool Presentation::removeSlide(int id) {
@@ -14,6 +21,12 @@ bool Presentation::removeSlide(int id) {
                            [id](const Slide& s) { return s.getId() == id; });
     if (it == slides_.end()) return false;
     slides_.erase(it);
+    return true;
+}
+
+bool Presentation::removeSlideAt(size_t index) {
+    if (index >= slides_.size()) return false;
+    slides_.erase(slides_.begin() + index);
     return true;
 }
 
@@ -37,11 +50,20 @@ const Slide* Presentation::getSlideAt(size_t index) const {
     return index < slides_.size() ? &slides_[index] : nullptr;
 }
 
+void Presentation::clear() {
+    slides_.clear();
+    nextSlideId_ = 1;
+}
+
 void Presentation::display(std::ostream& os) const {
     os << "Presentation (" << slides_.size() << " slides):\n";
-    for (const auto& slide : slides_) {
-        slide.display(os);
+    if (slides_.empty()) {
+        os << "  (empty)\n";
+    } else {
+        for (const auto& slide : slides_) {
+            slide.display(os);
+        }
     }
 }
 
-} // namespace ppt_cli
+} // namespace ppt

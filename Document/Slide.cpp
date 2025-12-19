@@ -1,13 +1,8 @@
 #include "Slide.h"
-#include "Elements/Rectangle.h"
-#include "Elements/Ellipse.h"
-#include "Elements/Triangle.h"
-#include "Elements/Line.h"
-#include <iostream>
-#include <stdexcept>
 #include <algorithm>
+#include <stdexcept>
 
-namespace ppt_cli {
+namespace ppt {
 
 Slide::Slide(int id, const std::string& title)
     : id_(id), title_(title) {}
@@ -15,10 +10,9 @@ Slide::Slide(int id, const std::string& title)
 Slide::Slide(const Slide& other)
     : id_(other.id_)
     , title_(other.title_)
-    , textAreas_(other.textAreas_)
-    , nextShapeId_(other.nextShapeId_) {
-    for (const auto& shape : other.shapes_) {
-        shapes_.push_back(std::unique_ptr<IShape>(shape->clone()));
+    , nextObjectId_(other.nextObjectId_) {
+    for (const auto& obj : other.objects_) {
+        objects_.push_back(obj->clone());
     }
 }
 
@@ -26,147 +20,106 @@ Slide& Slide::operator=(const Slide& other) {
     if (this != &other) {
         id_ = other.id_;
         title_ = other.title_;
-        textAreas_ = other.textAreas_;
-        nextShapeId_ = other.nextShapeId_;
-        shapes_.clear();
-        for (const auto& shape : other.shapes_) {
-            shapes_.push_back(std::unique_ptr<IShape>(shape->clone()));
+        nextObjectId_ = other.nextObjectId_;
+        objects_.clear();
+        for (const auto& obj : other.objects_) {
+            objects_.push_back(obj->clone());
         }
     }
     return *this;
 }
 
-IShape* Slide::addShape(const std::string& name, ShapeType type, const std::string& color) {
-    std::unique_ptr<IShape> shape;
-    int id = nextShapeId_++;
+SlideObject* Slide::getObject(int objectId) {
+    for (auto& obj : objects_) {
+        if (obj->getId() == objectId) {
+            return obj.get();
+        }
+    }
+    return nullptr;
+}
+
+const SlideObject* Slide::getObject(int objectId) const {
+    for (const auto& obj : objects_) {
+        if (obj->getId() == objectId) {
+            return obj.get();
+        }
+    }
+    return nullptr;
+}
+
+SlideObject* Slide::getObjectAt(size_t index) {
+    return index < objects_.size() ? objects_[index].get() : nullptr;
+}
+
+const SlideObject* Slide::getObjectAt(size_t index) const {
+    return index < objects_.size() ? objects_[index].get() : nullptr;
+}
+
+SlideObject* Slide::addObject(ObjectType type, const std::string& name, 
+                               const std::string& color) {
+    std::unique_ptr<SlideObject> obj;
+    int id = nextObjectId_++;
     
     switch (type) {
-        case ShapeType::RECTANGLE:
-            shape = std::make_unique<Rectangle>(id, name, color);
+        case ObjectType::RECTANGLE:
+            obj = std::make_unique<Rectangle>(id, name, color);
             break;
-        case ShapeType::ELLIPSE:
-            shape = std::make_unique<Ellipse>(id, name, color);
+        case ObjectType::CIRCLE:
+            obj = std::make_unique<Circle>(id, name, color);
             break;
-        case ShapeType::TRIANGLE:
-            shape = std::make_unique<Triangle>(id, name, color);
+        case ObjectType::LINE:
+            obj = std::make_unique<Line>(id, name, color);
             break;
-        case ShapeType::LINE:
-            shape = std::make_unique<Line>(id, name, color);
+        case ObjectType::TEXT:
+            obj = std::make_unique<TextObject>(id, name, "", color);
             break;
-        default:
-            shape = std::make_unique<Rectangle>(id, name, color);
     }
     
-    shapes_.push_back(std::move(shape));
-    return shapes_.back().get();
+    objects_.push_back(std::move(obj));
+    return objects_.back().get();
 }
 
-IShape* Slide::addShape(std::unique_ptr<IShape> shape) {
-    shapes_.push_back(std::move(shape));
-    return shapes_.back().get();
+SlideObject* Slide::addObject(std::unique_ptr<SlideObject> obj) {
+    objects_.push_back(std::move(obj));
+    return objects_.back().get();
 }
 
-IShape* Slide::getShape(int shapeId) {
-    for (auto& shape : shapes_) {
-        if (shape->getId() == shapeId) {
-            return shape.get();
-        }
-    }
-    return nullptr;
-}
-
-const IShape* Slide::getShape(int shapeId) const {
-    for (const auto& shape : shapes_) {
-        if (shape->getId() == shapeId) {
-            return shape.get();
-        }
-    }
-    return nullptr;
-}
-
-IShape* Slide::getShapeAt(size_t index) {
-    return index < shapes_.size() ? shapes_[index].get() : nullptr;
-}
-
-bool Slide::removeShape(int shapeId) {
-    auto it = std::find_if(shapes_.begin(), shapes_.end(),
-                           [shapeId](const std::unique_ptr<IShape>& s) { 
-                               return s->getId() == shapeId; 
+bool Slide::removeObject(int objectId) {
+    auto it = std::find_if(objects_.begin(), objects_.end(),
+                           [objectId](const std::unique_ptr<SlideObject>& o) { 
+                               return o->getId() == objectId; 
                            });
-    if (it == shapes_.end()) return false;
-    shapes_.erase(it);
+    if (it == objects_.end()) return false;
+    objects_.erase(it);
     return true;
 }
 
-bool Slide::removeShapeAt(size_t index) {
-    if (index >= shapes_.size()) return false;
-    shapes_.erase(shapes_.begin() + index);
+bool Slide::removeObjectAt(size_t index) {
+    if (index >= objects_.size()) return false;
+    objects_.erase(objects_.begin() + index);
     return true;
 }
 
-void Slide::addText(const std::string& area, const std::string& content) {
-    if (textAreas_.count(area))
-        throw std::runtime_error("Text area '" + area + "' already exists.");
-    TextArea ta;
-    ta.content = content;
-    textAreas_[area] = ta;
-}
-
-void Slide::editText(const std::string& area, const std::string& newContent) {
-    if (!textAreas_.count(area))
-        throw std::runtime_error("Text area '" + area + "' does not exist.");
-    textAreas_[area].content = newContent;
-}
-
-void Slide::removeText(const std::string& area) {
-    if (!textAreas_.count(area))
-        throw std::runtime_error("Text area '" + area + "' does not exist.");
-    textAreas_.erase(area);
-}
-
-void Slide::setFont(const std::string& area, const std::string& font, int size, const std::string& color) {
-    if (!textAreas_.count(area))
-        throw std::runtime_error("Text area '" + area + "' does not exist.");
-    auto& ta = textAreas_[area];
-    if (!font.empty()) ta.fontFamily = font;
-    if (size > 0) ta.fontSize = size;
-    if (!color.empty()) ta.color = color;
-}
-
-void Slide::alignText(const std::string& area, const std::string& alignment) {
-    if (!textAreas_.count(area))
-        throw std::runtime_error("Text area '" + area + "' does not exist.");
-    textAreas_[area].alignment = alignment;
-}
-
-bool Slide::hasTextArea(const std::string& area) const {
-    return textAreas_.count(area) > 0;
+TextObject* Slide::addText(const std::string& name, const std::string& content, 
+                            const std::string& color) {
+    int id = nextObjectId_++;
+    auto text = std::make_unique<TextObject>(id, name, content, color);
+    TextObject* ptr = text.get();
+    objects_.push_back(std::move(text));
+    return ptr;
 }
 
 void Slide::display(std::ostream& os) const {
-    os << "Slide #" << id_ << " (" << title_ << ")\n";
-    
-    if (!textAreas_.empty()) {
-        os << "  Text Areas:\n";
-        for (const auto& [area, ta] : textAreas_) {
-            os << "    [" << area << "]: \"" << ta.content << "\" "
-               << "(font: " << ta.fontFamily << ", "
-               << ta.fontSize << "pt, " << ta.color << ", "
-               << ta.alignment << ")\n";
-        }
-    }
-    
-    if (!shapes_.empty()) {
-        os << "  Shapes (" << shapes_.size() << "):\n";
-        for (const auto& shape : shapes_) {
-            os << "    ";
-            shape->display(os);
-        }
-    }
-    
-    if (textAreas_.empty() && shapes_.empty()) {
+    os << "Slide #" << id_ << ": " << title_ << "\n";
+    if (objects_.empty()) {
         os << "  (empty)\n";
+    } else {
+        os << "  Objects (" << objects_.size() << "):\n";
+        for (const auto& obj : objects_) {
+            os << "    ";
+            obj->display(os);
+        }
     }
 }
 
-} // namespace ppt_cli
+} // namespace ppt

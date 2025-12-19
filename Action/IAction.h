@@ -2,26 +2,21 @@
 #define IACTION_H_
 
 #include "../Document/Presentation.h"
+#include <string>
 
-namespace ppt_cli {
+namespace ppt {
 
 class IAction {
 public:
     virtual ~IAction() = default;
     
-    // Execute the action
-    virtual void execute(Presentation& presentation) = 0;
+    virtual void execute(Presentation& pres) = 0;
+    virtual void undo(Presentation& pres) = 0;
     
-    // Undo the action
-    virtual void undo(Presentation& presentation) = 0;
-    
-    // Check if this action can be undone
     virtual bool isUndoable() const { return true; }
-    
-    // Get action description for display
     virtual std::string getDescription() const = 0;
 };
 
-} // namespace ppt_cli
+} // namespace ppt
 
 #endif // IACTION_H_
