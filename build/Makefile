@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/annagalstyan/Desktop/projects/OOP/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/opt/homebrew/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -173,6 +183,19 @@ ppt-cli: cmake_check_build_system
 ppt-cli/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/build
 .PHONY : ppt-cli/fast
+
+#=============================================================================
+# Target rules for targets named run_tests
+
+# Build rule for target.
+run_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_tests
+.PHONY : run_tests
+
+# fast build rule for target.
+run_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
+.PHONY : run_tests/fast
 
 CLI/Command/AddCommand.o: CLI/Command/AddCommand.cpp.o
 .PHONY : CLI/Command/AddCommand.o
@@ -390,12 +413,61 @@ CLI/Repository/CommandRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.s
 .PHONY : CLI/Repository/CommandRepository.cpp.s
 
+Command/Argument.o: Command/Argument.cpp.o
+.PHONY : Command/Argument.o
+
+# target to build an object file
+Command/Argument.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Command/Argument.cpp.o
+.PHONY : Command/Argument.cpp.o
+
+Command/Argument.i: Command/Argument.cpp.i
+.PHONY : Command/Argument.i
+
+# target to preprocess a source file
+Command/Argument.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Command/Argument.cpp.i
+.PHONY : Command/Argument.cpp.i
+
+Command/Argument.s: Command/Argument.cpp.s
+.PHONY : Command/Argument.s
+
+# target to generate assembly for a file
+Command/Argument.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Command/Argument.cpp.s
+.PHONY : Command/Argument.cpp.s
+
+Command/CommandFactory.o: Command/CommandFactory.cpp.o
+.PHONY : Command/CommandFactory.o
+
+# target to build an object file
+Command/CommandFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Command/CommandFactory.cpp.o
+.PHONY : Command/CommandFactory.cpp.o
+
+Command/CommandFactory.i: Command/CommandFactory.cpp.i
+.PHONY : Command/CommandFactory.i
+
+# target to preprocess a source file
+Command/CommandFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Command/CommandFactory.cpp.i
+.PHONY : Command/CommandFactory.cpp.i
+
+Command/CommandFactory.s: Command/CommandFactory.cpp.s
+.PHONY : Command/CommandFactory.s
+
+# target to generate assembly for a file
+Command/CommandFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Command/CommandFactory.cpp.s
+.PHONY : Command/CommandFactory.cpp.s
+
 Document/BaseSlideObject.o: Document/BaseSlideObject.cpp.o
 .PHONY : Document/BaseSlideObject.o
 
 # target to build an object file
 Document/BaseSlideObject.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/BaseSlideObject.cpp.o
 .PHONY : Document/BaseSlideObject.cpp.o
 
 Document/BaseSlideObject.i: Document/BaseSlideObject.cpp.i
@@ -404,6 +476,7 @@ Document/BaseSlideObject.i: Document/BaseSlideObject.cpp.i
 # target to preprocess a source file
 Document/BaseSlideObject.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/BaseSlideObject.cpp.i
 .PHONY : Document/BaseSlideObject.cpp.i
 
 Document/BaseSlideObject.s: Document/BaseSlideObject.cpp.s
@@ -412,6 +485,7 @@ Document/BaseSlideObject.s: Document/BaseSlideObject.cpp.s
 # target to generate assembly for a file
 Document/BaseSlideObject.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/BaseSlideObject.cpp.s
 .PHONY : Document/BaseSlideObject.cpp.s
 
 Document/Circle.o: Document/Circle.cpp.o
@@ -420,6 +494,7 @@ Document/Circle.o: Document/Circle.cpp.o
 # target to build an object file
 Document/Circle.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Circle.cpp.o
 .PHONY : Document/Circle.cpp.o
 
 Document/Circle.i: Document/Circle.cpp.i
@@ -428,6 +503,7 @@ Document/Circle.i: Document/Circle.cpp.i
 # target to preprocess a source file
 Document/Circle.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Circle.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Circle.cpp.i
 .PHONY : Document/Circle.cpp.i
 
 Document/Circle.s: Document/Circle.cpp.s
@@ -436,6 +512,7 @@ Document/Circle.s: Document/Circle.cpp.s
 # target to generate assembly for a file
 Document/Circle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Circle.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Circle.cpp.s
 .PHONY : Document/Circle.cpp.s
 
 Document/Line.o: Document/Line.cpp.o
@@ -444,6 +521,7 @@ Document/Line.o: Document/Line.cpp.o
 # target to build an object file
 Document/Line.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Line.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Line.cpp.o
 .PHONY : Document/Line.cpp.o
 
 Document/Line.i: Document/Line.cpp.i
@@ -452,6 +530,7 @@ Document/Line.i: Document/Line.cpp.i
 # target to preprocess a source file
 Document/Line.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Line.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Line.cpp.i
 .PHONY : Document/Line.cpp.i
 
 Document/Line.s: Document/Line.cpp.s
@@ -460,6 +539,7 @@ Document/Line.s: Document/Line.cpp.s
 # target to generate assembly for a file
 Document/Line.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Line.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Line.cpp.s
 .PHONY : Document/Line.cpp.s
 
 Document/Presentation.o: Document/Presentation.cpp.o
@@ -468,6 +548,7 @@ Document/Presentation.o: Document/Presentation.cpp.o
 # target to build an object file
 Document/Presentation.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Presentation.cpp.o
 .PHONY : Document/Presentation.cpp.o
 
 Document/Presentation.i: Document/Presentation.cpp.i
@@ -476,6 +557,7 @@ Document/Presentation.i: Document/Presentation.cpp.i
 # target to preprocess a source file
 Document/Presentation.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Presentation.cpp.i
 .PHONY : Document/Presentation.cpp.i
 
 Document/Presentation.s: Document/Presentation.cpp.s
@@ -484,6 +566,7 @@ Document/Presentation.s: Document/Presentation.cpp.s
 # target to generate assembly for a file
 Document/Presentation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Presentation.cpp.s
 .PHONY : Document/Presentation.cpp.s
 
 Document/Rectangle.o: Document/Rectangle.cpp.o
@@ -492,6 +575,7 @@ Document/Rectangle.o: Document/Rectangle.cpp.o
 # target to build an object file
 Document/Rectangle.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Rectangle.cpp.o
 .PHONY : Document/Rectangle.cpp.o
 
 Document/Rectangle.i: Document/Rectangle.cpp.i
@@ -500,6 +584,7 @@ Document/Rectangle.i: Document/Rectangle.cpp.i
 # target to preprocess a source file
 Document/Rectangle.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Rectangle.cpp.i
 .PHONY : Document/Rectangle.cpp.i
 
 Document/Rectangle.s: Document/Rectangle.cpp.s
@@ -508,6 +593,7 @@ Document/Rectangle.s: Document/Rectangle.cpp.s
 # target to generate assembly for a file
 Document/Rectangle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Rectangle.cpp.s
 .PHONY : Document/Rectangle.cpp.s
 
 Document/Slide.o: Document/Slide.cpp.o
@@ -516,6 +602,7 @@ Document/Slide.o: Document/Slide.cpp.o
 # target to build an object file
 Document/Slide.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Slide.cpp.o
 .PHONY : Document/Slide.cpp.o
 
 Document/Slide.i: Document/Slide.cpp.i
@@ -524,6 +611,7 @@ Document/Slide.i: Document/Slide.cpp.i
 # target to preprocess a source file
 Document/Slide.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Slide.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Slide.cpp.i
 .PHONY : Document/Slide.cpp.i
 
 Document/Slide.s: Document/Slide.cpp.s
@@ -532,6 +620,7 @@ Document/Slide.s: Document/Slide.cpp.s
 # target to generate assembly for a file
 Document/Slide.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/Slide.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/Slide.cpp.s
 .PHONY : Document/Slide.cpp.s
 
 Document/TextObject.o: Document/TextObject.cpp.o
@@ -540,6 +629,7 @@ Document/TextObject.o: Document/TextObject.cpp.o
 # target to build an object file
 Document/TextObject.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/TextObject.cpp.o
 .PHONY : Document/TextObject.cpp.o
 
 Document/TextObject.i: Document/TextObject.cpp.i
@@ -548,6 +638,7 @@ Document/TextObject.i: Document/TextObject.cpp.i
 # target to preprocess a source file
 Document/TextObject.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/TextObject.cpp.i
 .PHONY : Document/TextObject.cpp.i
 
 Document/TextObject.s: Document/TextObject.cpp.s
@@ -556,6 +647,7 @@ Document/TextObject.s: Document/TextObject.cpp.s
 # target to generate assembly for a file
 Document/TextObject.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Document/TextObject.cpp.s
 .PHONY : Document/TextObject.cpp.s
 
 Main.o: Main.cpp.o
@@ -581,6 +673,78 @@ Main.s: Main.cpp.s
 Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Main.cpp.s
 .PHONY : Main.cpp.s
+
+Parser/Parser.o: Parser/Parser.cpp.o
+.PHONY : Parser/Parser.o
+
+# target to build an object file
+Parser/Parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Parser/Parser.cpp.o
+.PHONY : Parser/Parser.cpp.o
+
+Parser/Parser.i: Parser/Parser.cpp.i
+.PHONY : Parser/Parser.i
+
+# target to preprocess a source file
+Parser/Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Parser/Parser.cpp.i
+.PHONY : Parser/Parser.cpp.i
+
+Parser/Parser.s: Parser/Parser.cpp.s
+.PHONY : Parser/Parser.s
+
+# target to generate assembly for a file
+Parser/Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Parser/Parser.cpp.s
+.PHONY : Parser/Parser.cpp.s
+
+Parser/Tokenizer.o: Parser/Tokenizer.cpp.o
+.PHONY : Parser/Tokenizer.o
+
+# target to build an object file
+Parser/Tokenizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Parser/Tokenizer.cpp.o
+.PHONY : Parser/Tokenizer.cpp.o
+
+Parser/Tokenizer.i: Parser/Tokenizer.cpp.i
+.PHONY : Parser/Tokenizer.i
+
+# target to preprocess a source file
+Parser/Tokenizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Parser/Tokenizer.cpp.i
+.PHONY : Parser/Tokenizer.cpp.i
+
+Parser/Tokenizer.s: Parser/Tokenizer.cpp.s
+.PHONY : Parser/Tokenizer.s
+
+# target to generate assembly for a file
+Parser/Tokenizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Parser/Tokenizer.cpp.s
+.PHONY : Parser/Tokenizer.cpp.s
+
+Rendering/SVGPainter.o: Rendering/SVGPainter.cpp.o
+.PHONY : Rendering/SVGPainter.o
+
+# target to build an object file
+Rendering/SVGPainter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Rendering/SVGPainter.cpp.o
+.PHONY : Rendering/SVGPainter.cpp.o
+
+Rendering/SVGPainter.i: Rendering/SVGPainter.cpp.i
+.PHONY : Rendering/SVGPainter.i
+
+# target to preprocess a source file
+Rendering/SVGPainter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Rendering/SVGPainter.cpp.i
+.PHONY : Rendering/SVGPainter.cpp.i
+
+Rendering/SVGPainter.s: Rendering/SVGPainter.cpp.s
+.PHONY : Rendering/SVGPainter.s
+
+# target to generate assembly for a file
+Rendering/SVGPainter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Rendering/SVGPainter.cpp.s
+.PHONY : Rendering/SVGPainter.cpp.s
 
 Serialization/JsonDeserializer.o: Serialization/JsonDeserializer.cpp.o
 .PHONY : Serialization/JsonDeserializer.o
@@ -630,12 +794,37 @@ Serialization/JsonSerializer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.s
 .PHONY : Serialization/JsonSerializer.cpp.s
 
+Tests/TestRunner.o: Tests/TestRunner.cpp.o
+.PHONY : Tests/TestRunner.o
+
+# target to build an object file
+Tests/TestRunner.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Tests/TestRunner.cpp.o
+.PHONY : Tests/TestRunner.cpp.o
+
+Tests/TestRunner.i: Tests/TestRunner.cpp.i
+.PHONY : Tests/TestRunner.i
+
+# target to preprocess a source file
+Tests/TestRunner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Tests/TestRunner.cpp.i
+.PHONY : Tests/TestRunner.cpp.i
+
+Tests/TestRunner.s: Tests/TestRunner.cpp.s
+.PHONY : Tests/TestRunner.s
+
+# target to generate assembly for a file
+Tests/TestRunner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Tests/TestRunner.cpp.s
+.PHONY : Tests/TestRunner.cpp.s
+
 Visualization/SlideRenderer.o: Visualization/SlideRenderer.cpp.o
 .PHONY : Visualization/SlideRenderer.o
 
 # target to build an object file
 Visualization/SlideRenderer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Visualization/SlideRenderer.cpp.o
 .PHONY : Visualization/SlideRenderer.cpp.o
 
 Visualization/SlideRenderer.i: Visualization/SlideRenderer.cpp.i
@@ -644,6 +833,7 @@ Visualization/SlideRenderer.i: Visualization/SlideRenderer.cpp.i
 # target to preprocess a source file
 Visualization/SlideRenderer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Visualization/SlideRenderer.cpp.i
 .PHONY : Visualization/SlideRenderer.cpp.i
 
 Visualization/SlideRenderer.s: Visualization/SlideRenderer.cpp.s
@@ -652,6 +842,7 @@ Visualization/SlideRenderer.s: Visualization/SlideRenderer.cpp.s
 # target to generate assembly for a file
 Visualization/SlideRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Visualization/SlideRenderer.cpp.s
 .PHONY : Visualization/SlideRenderer.cpp.s
 
 Visualization/SvgShapeRenderer.o: Visualization/SvgShapeRenderer.cpp.o
@@ -660,6 +851,7 @@ Visualization/SvgShapeRenderer.o: Visualization/SvgShapeRenderer.cpp.o
 # target to build an object file
 Visualization/SvgShapeRenderer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Visualization/SvgShapeRenderer.cpp.o
 .PHONY : Visualization/SvgShapeRenderer.cpp.o
 
 Visualization/SvgShapeRenderer.i: Visualization/SvgShapeRenderer.cpp.i
@@ -668,6 +860,7 @@ Visualization/SvgShapeRenderer.i: Visualization/SvgShapeRenderer.cpp.i
 # target to preprocess a source file
 Visualization/SvgShapeRenderer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Visualization/SvgShapeRenderer.cpp.i
 .PHONY : Visualization/SvgShapeRenderer.cpp.i
 
 Visualization/SvgShapeRenderer.s: Visualization/SvgShapeRenderer.cpp.s
@@ -676,6 +869,7 @@ Visualization/SvgShapeRenderer.s: Visualization/SvgShapeRenderer.cpp.s
 # target to generate assembly for a file
 Visualization/SvgShapeRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/Visualization/SvgShapeRenderer.cpp.s
 .PHONY : Visualization/SvgShapeRenderer.cpp.s
 
 # Help Target
@@ -690,7 +884,9 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... ppt-cli"
+	@echo "... run_tests"
 	@echo "... CLI/Command/AddCommand.o"
 	@echo "... CLI/Command/AddCommand.i"
 	@echo "... CLI/Command/AddCommand.s"
@@ -718,6 +914,12 @@ help:
 	@echo "... CLI/Repository/CommandRepository.o"
 	@echo "... CLI/Repository/CommandRepository.i"
 	@echo "... CLI/Repository/CommandRepository.s"
+	@echo "... Command/Argument.o"
+	@echo "... Command/Argument.i"
+	@echo "... Command/Argument.s"
+	@echo "... Command/CommandFactory.o"
+	@echo "... Command/CommandFactory.i"
+	@echo "... Command/CommandFactory.s"
 	@echo "... Document/BaseSlideObject.o"
 	@echo "... Document/BaseSlideObject.i"
 	@echo "... Document/BaseSlideObject.s"
@@ -742,12 +944,24 @@ help:
 	@echo "... Main.o"
 	@echo "... Main.i"
 	@echo "... Main.s"
+	@echo "... Parser/Parser.o"
+	@echo "... Parser/Parser.i"
+	@echo "... Parser/Parser.s"
+	@echo "... Parser/Tokenizer.o"
+	@echo "... Parser/Tokenizer.i"
+	@echo "... Parser/Tokenizer.s"
+	@echo "... Rendering/SVGPainter.o"
+	@echo "... Rendering/SVGPainter.i"
+	@echo "... Rendering/SVGPainter.s"
 	@echo "... Serialization/JsonDeserializer.o"
 	@echo "... Serialization/JsonDeserializer.i"
 	@echo "... Serialization/JsonDeserializer.s"
 	@echo "... Serialization/JsonSerializer.o"
 	@echo "... Serialization/JsonSerializer.i"
 	@echo "... Serialization/JsonSerializer.s"
+	@echo "... Tests/TestRunner.o"
+	@echo "... Tests/TestRunner.i"
+	@echo "... Tests/TestRunner.s"
 	@echo "... Visualization/SlideRenderer.o"
 	@echo "... Visualization/SlideRenderer.i"
 	@echo "... Visualization/SlideRenderer.s"

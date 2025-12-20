@@ -1,0 +1,23 @@
+{
+    "nextSlideId": 4,
+    "slides": [
+        {
+            "id": 1,
+            "nextObjectId": 1,
+            "objects": [],
+            "title": "Welcome"
+        },
+        {
+            "id": 2,
+            "nextObjectId": 1,
+            "objects": [],
+            "title": "Features"
+        },
+        {
+            "id": 3,
+            "nextObjectId": 1,
+            "objects": [],
+            "title": "Contact"
+        }
+    ]
+}

@@ -124,5 +124,95 @@
   "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Tests/TestRunner.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Tests/TestRunner.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Tests/TestRunner.cpp",
+  "output": "CMakeFiles/run_tests.dir/Tests/TestRunner.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Document/BaseSlideObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/BaseSlideObject.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/BaseSlideObject.cpp",
+  "output": "CMakeFiles/run_tests.dir/Document/BaseSlideObject.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Document/Rectangle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp",
+  "output": "CMakeFiles/run_tests.dir/Document/Rectangle.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Document/Circle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Circle.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Circle.cpp",
+  "output": "CMakeFiles/run_tests.dir/Document/Circle.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Document/Line.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Line.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Line.cpp",
+  "output": "CMakeFiles/run_tests.dir/Document/Line.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Document/TextObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp",
+  "output": "CMakeFiles/run_tests.dir/Document/TextObject.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Document/Slide.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp",
+  "output": "CMakeFiles/run_tests.dir/Document/Slide.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Document/Presentation.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp",
+  "output": "CMakeFiles/run_tests.dir/Document/Presentation.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Parser/Tokenizer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Parser/Tokenizer.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Parser/Tokenizer.cpp",
+  "output": "CMakeFiles/run_tests.dir/Parser/Tokenizer.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Parser/Parser.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Parser/Parser.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Parser/Parser.cpp",
+  "output": "CMakeFiles/run_tests.dir/Parser/Parser.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Command/CommandFactory.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Command/CommandFactory.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Command/CommandFactory.cpp",
+  "output": "CMakeFiles/run_tests.dir/Command/CommandFactory.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Command/Argument.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Command/Argument.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Command/Argument.cpp",
+  "output": "CMakeFiles/run_tests.dir/Command/Argument.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Rendering/SVGPainter.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp",
+  "output": "CMakeFiles/run_tests.dir/Rendering/SVGPainter.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Visualization/SvgShapeRenderer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Visualization/SvgShapeRenderer.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Visualization/SvgShapeRenderer.cpp",
+  "output": "CMakeFiles/run_tests.dir/Visualization/SvgShapeRenderer.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/run_tests.dir/Visualization/SlideRenderer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp",
+  "output": "CMakeFiles/run_tests.dir/Visualization/SlideRenderer.cpp.o"
 }
 ]

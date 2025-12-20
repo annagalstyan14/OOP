@@ -65,3 +65,26 @@ endif()
 
 # Installation
 install(TARGETS ppt-cli DESTINATION bin)
+
+# ==================== Unit Tests ====================
+option(BUILD_TESTS "Build unit tests" ON)
+
+if(BUILD_TESTS)
+    add_executable(run_tests
+        Tests/TestRunner.cpp
+        ${DOCUMENT_SOURCES}
+        Parser/Tokenizer.cpp
+        Parser/Parser.cpp
+        Command/CommandFactory.cpp
+        Command/Argument.cpp
+        Rendering/SVGPainter.cpp
+        Visualization/SvgShapeRenderer.cpp
+        Visualization/SlideRenderer.cpp
+    )
+    
+    target_include_directories(run_tests PRIVATE ${CMAKE_SOURCE_DIR})
+    target_link_libraries(run_tests PRIVATE nlohmann_json::nlohmann_json)
+    
+    enable_testing()
+    add_test(NAME unit_tests COMMAND run_tests)
+endif()
