@@ -1,5 +1,5 @@
-#ifndef ARGUMENT_H_
-#define ARGUMENT_H_
+#ifndef CLI_ARGUMENT_H_
+#define CLI_ARGUMENT_H_
 
 #include <string>
 #include <variant>
@@ -34,4 +34,4 @@ using ArgPtr = std::unique_ptr<Argument>;
 
 } // namespace ppt_cli
 
-#endif // ARGUMENT_H_
+#endif // CLI_ARGUMENT_H_

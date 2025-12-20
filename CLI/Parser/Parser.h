@@ -1,5 +1,5 @@
-#ifndef PARSER_H_
-#define PARSER_H_
+#ifndef CLI_PARSER_H_
+#define CLI_PARSER_H_
 
 #include "Tokenizer.h"
 #include "../Command/ICommand.h"
@@ -38,4 +38,4 @@ private:
 
 } // namespace ppt_cli
 
-#endif // PARSER_H_
+#endif // CLI_PARSER_H_

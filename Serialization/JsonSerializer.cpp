@@ -1,4 +1,5 @@
 #include "JsonSerializer.h"
+#include "../Document/Elements/IShape.h"
 #include <fstream>
 #include <nlohmann/json.hpp>
 

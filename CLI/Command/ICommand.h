@@ -1,11 +1,14 @@
-#ifndef ICOMMAND_H_
-#define ICOMMAND_H_
+#ifndef CLI_ICOMMAND_H_
+#define CLI_ICOMMAND_H_
 
-#include "../../Action/Editor.h" // Include the full definition of Editor
+#include "../../Document/Presentation.h"
+#include "../../Action/Editor.h"
 
 namespace ppt_cli {
 
-class Presentation;
+// Use ppt namespace types
+using ppt::Presentation;
+using ppt::Editor;
 
 class ICommand {
 public:
@@ -15,4 +18,4 @@ public:
 
 } // namespace ppt_cli
 
-#endif // ICOMMAND_H_
+#endif // CLI_ICOMMAND_H_

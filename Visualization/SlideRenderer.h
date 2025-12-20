@@ -1,7 +1,7 @@
 #ifndef SLIDE_RENDERER_H_
 #define SLIDE_RENDERER_H_
 
-#include "../Document/Slide.h"
+#include "../Document/Slide_cli.h"
 #include "IShapeRenderer.h"
 #include <string>
 #include <memory>

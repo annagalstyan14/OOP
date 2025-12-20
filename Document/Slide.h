@@ -1,5 +1,5 @@
-#ifndef SLIDE_H_
-#define SLIDE_H_
+#ifndef PPT_SLIDE_H_
+#define PPT_SLIDE_H_
 
 #include "SlideObject.h"
 #include "Rectangle.h"
@@ -64,4 +64,4 @@ public:
 
 } // namespace ppt
 
-#endif // SLIDE_H_
+#endif // PPT_SLIDE_H_

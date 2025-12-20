@@ -1,5 +1,5 @@
-#ifndef JSON_SERIALIZER_H_
-#define JSON_SERIALIZER_H_
+#ifndef JSON_SERIALIZER_CLI_H_
+#define JSON_SERIALIZER_CLI_H_
 
 #include "ISerializer.h"
 
@@ -12,4 +12,4 @@ public:
 
 } // namespace ppt_cli
 
-#endif // JSON_SERIALIZER_H_
+#endif // JSON_SERIALIZER_CLI_H_

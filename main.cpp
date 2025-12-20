@@ -1,7 +1,13 @@
-#include "Controller/Controller.h"
+#include "CLI/Controller/Controller.h"
+#include <iostream>
 
 int main() {
-    ppt::Controller controller;
-    controller.start();
-    return 0;
+    try {
+        ppt_cli::Controller controller;
+        controller.start();
+        return 0;
+    } catch (const std::exception& e) {
+        std::cerr << "Fatal error: " << e.what() << std::endl;
+        return 1;
+    }
 }

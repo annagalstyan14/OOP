@@ -1,7 +1,7 @@
 #ifndef IDESERIALIZER_H_
 #define IDESERIALIZER_H_
 
-#include "../Document/Presentation.h"
+#include "../Document/Presentation_cli.h"
 #include <string>
 
 namespace ppt_cli {

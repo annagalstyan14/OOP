@@ -1,5 +1,5 @@
-#ifndef TOKEN_H_
-#define TOKEN_H_
+#ifndef CLI_TOKEN_H_
+#define CLI_TOKEN_H_
 
 #include <string>
 
@@ -37,4 +37,4 @@ private:
 
 } // namespace ppt_cli
 
-#endif // TOKEN_H_
+#endif // CLI_TOKEN_H_

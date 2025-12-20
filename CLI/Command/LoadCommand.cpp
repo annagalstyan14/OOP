@@ -1,10 +1,8 @@
 #include "LoadCommand.h"
 #include "../../Document/Presentation.h"
-#include "../../Action/Editor.h" // Ensure the full definition of Editor is included
-#include "../../Serialization/JsonDeserializer.h"
+#include "../../Action/Editor.h"
+#include "../../Document/JSONSerializer.h"
 #include <iostream>
-
-using ppt::Editor; // Use the correct namespace for Editor
 
 namespace ppt_cli {
 
@@ -15,8 +13,7 @@ void LoadCommand::execute(Presentation& pres, Editor& editor) {
         filename = args_[0]->asString();
     }
     
-    JsonDeserializer deserializer;
-    if (deserializer.deserialize(pres, filename)) {
+    if (ppt::JSONSerializer::load(pres, filename)) {
         editor.clearHistory();
         std::cout << "Loaded from " << filename << "\n";
     } else {

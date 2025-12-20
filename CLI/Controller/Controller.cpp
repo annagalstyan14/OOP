@@ -1,6 +1,7 @@
 #include "Controller.h"
 #include <sstream>
 #include <algorithm>
+#include <fstream>
 
 namespace ppt_cli {
 
@@ -78,9 +79,8 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             std::string response;
             std::getline(std::cin, response);
             if (!response.empty() && (response[0] == 'y' || response[0] == 'Y')) {
-                JsonSerializer serializer;
                 std::string filename = currentFile_.empty() ? "presentation.json" : currentFile_;
-                if (serializer.serialize(presentation_, filename)) {
+                if (ppt::JSONSerializer::save(presentation_, filename)) {
                     std::cout << "Saved to " << filename << "\n";
                 }
             }
@@ -91,7 +91,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
     }
     
     if (firstWord == "new") {
-        presentation_ = Presentation();
+        presentation_ = ppt::Presentation();
         editor_.clearHistory();
         presentationOpen_ = true;
         currentFile_ = "";
@@ -108,8 +108,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
         std::string filename = line.substr(pos + 1);
         filename.erase(0, filename.find_first_not_of(" \t"));
         
-        JsonDeserializer deserializer;
-        if (deserializer.deserialize(presentation_, filename)) {
+        if (ppt::JSONSerializer::load(presentation_, filename)) {
             editor_.clearHistory();
             presentationOpen_ = true;
             currentFile_ = filename;
@@ -135,8 +134,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             filename = currentFile_.empty() ? "presentation.json" : currentFile_;
         }
         
-        JsonSerializer serializer;
-        if (serializer.serialize(presentation_, filename)) {
+        if (ppt::JSONSerializer::save(presentation_, filename)) {
             currentFile_ = filename;
             std::cout << "Saved to " << filename << "\n";
         } else {
@@ -176,13 +174,70 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             baseName.erase(0, baseName.find_first_not_of(" \t"));
         }
         
-        auto shapeRenderer = std::make_unique<SvgShapeRenderer>();
-        SlideRenderer renderer(std::move(shapeRenderer));
+        // Export slides to SVG
+        bool success = true;
+        for (size_t i = 0; i < presentation_.size(); ++i) {
+            const auto* slide = presentation_.getSlide(i);
+            if (!slide) continue;
+            
+            std::string filename = baseName + "_" + std::to_string(i + 1) + ".svg";
+            std::ofstream file(filename);
+            if (!file) {
+                success = false;
+                continue;
+            }
+            
+            // Generate SVG
+            file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+            file << "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"600\">\n";
+            file << "  <rect width=\"100%\" height=\"100%\" fill=\"white\"/>\n";
+            file << "  <text x=\"400\" y=\"30\" text-anchor=\"middle\" font-size=\"24\">" 
+                 << slide->getTitle() << "</text>\n";
+            
+            int yOffset = 60;
+            for (const auto& obj : slide->getObjects()) {
+                if (!obj) continue;
+                const auto& geom = obj->getGeometry();
+                std::string color = obj->getColor();
+                double x = geom.getX();
+                double y = geom.getY();
+                double w = geom.getWidth();
+                double h = geom.getHeight();
+                
+                switch (obj->getType()) {
+                    case ppt::ObjectType::RECTANGLE:
+                        file << "  <rect x=\"" << x << "\" y=\"" << y 
+                             << "\" width=\"" << w << "\" height=\"" << h
+                             << "\" fill=\"none\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
+                        break;
+                    case ppt::ObjectType::CIRCLE:
+                        file << "  <ellipse cx=\"" << (x + w/2)
+                             << "\" cy=\"" << (y + h/2)
+                             << "\" rx=\"" << w/2 << "\" ry=\"" << h/2
+                             << "\" fill=\"none\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
+                        break;
+                    case ppt::ObjectType::LINE:
+                        file << "  <line x1=\"" << x << "\" y1=\"" << y
+                             << "\" x2=\"" << (x + w) << "\" y2=\"" << (y + h)
+                             << "\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
+                        break;
+                    case ppt::ObjectType::TEXT:
+                        file << "  <text x=\"" << x << "\" y=\"" << y
+                             << "\" font-size=\"16\" fill=\"" << color << "\">" 
+                             << obj->getName() << "</text>\n";
+                        break;
+                }
+                yOffset += 20;
+            }
+            
+            file << "</svg>\n";
+            file.close();
+        }
         
-        if (renderer.exportPresentation(presentation_.getSlides(), baseName)) {
+        if (success) {
             std::cout << "Exported " << presentation_.size() << " slides to SVG.\n";
         } else {
-            std::cout << "Error: Failed to export slides.\n";
+            std::cout << "Warning: Some slides could not be exported.\n";
         }
         return;
     }
@@ -195,8 +250,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             filename.erase(0, filename.find_first_not_of(" \t"));
         }
         
-        JsonDeserializer deserializer;
-        deserializer.printToConsole(filename);
+        ppt::JSONSerializer::print(filename);
         return;
     }
 }

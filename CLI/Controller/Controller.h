@@ -1,12 +1,11 @@
-#ifndef CONTROLLER_H_
-#define CONTROLLER_H_
+#ifndef CLI_CONTROLLER_H_
+#define CLI_CONTROLLER_H_
 
 #include "../Parser/Parser.h"
 #include "../Repository/CommandRepository.h"
 #include "../../Document/Presentation.h"
 #include "../../Action/Editor.h"
-#include "../../Serialization/JsonSerializer.h"
-#include "../../Serialization/JsonDeserializer.h"
+#include "../../Document/JSONSerializer.h"
 #include "../../Visualization/SlideRenderer.h"
 #include "../../Visualization/SvgShapeRenderer.h"
 #include <string>
@@ -22,8 +21,8 @@ public:
     void run(const std::string& line);
     void start();
     
-    Presentation& getPresentation() { return presentation_; }
-    Editor& getEditor() { return editor_; }
+    ppt::Presentation& getPresentation() { return presentation_; }
+    ppt::Editor& getEditor() { return editor_; }
     bool isRunning() const { return running_; }
     void stop() { running_ = false; }
 
@@ -32,8 +31,8 @@ private:
     bool isSpecialCommand(const std::string& word) const;
     
     CommandRepository commandRepo_;
-    Presentation presentation_;
-    Editor editor_;
+    ppt::Presentation presentation_;
+    ppt::Editor editor_;
     bool running_ = true;
     bool presentationOpen_ = false;
     std::string currentFile_;
@@ -41,4 +40,4 @@ private:
 
 } // namespace ppt_cli
 
-#endif // CONTROLLER_H_
+#endif // CLI_CONTROLLER_H_

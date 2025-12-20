@@ -17,10 +17,10 @@ void ListCommand::execute(Presentation& pres, Editor& /*editor*/) {
     if (target_ == "slides") {
         std::cout << "Slides (" << pres.size() << "):\n";
         for (size_t i = 0; i < pres.size(); ++i) {
-            const Slide* s = pres.getSlideAt(i);
+            const ppt::Slide* s = pres.getSlideAt(i);
             std::cout << "  [" << i << "] Slide #" << s->getId() 
                       << " (" << s->getTitle() << ") - " 
-                      << s->shapeCount() << " shapes\n";
+                      << s->objectCount() << " objects\n";
         }
     }
     else if (target_ == "current") {
@@ -28,7 +28,7 @@ void ListCommand::execute(Presentation& pres, Editor& /*editor*/) {
             std::cout << "No slides.\n";
             return;
         }
-        Slide* current = pres.getSlideAt(pres.size() - 1);
+        ppt::Slide* current = pres.getSlideAt(pres.size() - 1);
         std::cout << "Current slide:\n";
         current->display();
     }
@@ -37,11 +37,11 @@ void ListCommand::execute(Presentation& pres, Editor& /*editor*/) {
             std::cout << "No slides.\n";
             return;
         }
-        Slide* current = pres.getSlideAt(pres.size() - 1);
-        std::cout << "Shapes on current slide (" << current->shapeCount() << "):\n";
-        for (const auto& shape : current->getShapes()) {
+        ppt::Slide* current = pres.getSlideAt(pres.size() - 1);
+        std::cout << "Objects on current slide (" << current->objectCount() << "):\n";
+        for (const auto& obj : current->getObjects()) {
             std::cout << "  ";
-            shape->display();
+            obj->display();
         }
     }
     else {

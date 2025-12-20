@@ -1,5 +1,5 @@
-#ifndef TOKENIZER_H_
-#define TOKENIZER_H_
+#ifndef CLI_TOKENIZER_H_
+#define CLI_TOKENIZER_H_
 
 #include "Token.h"
 #include <istream>
@@ -36,4 +36,4 @@ private:
 
 } // namespace ppt_cli
 
-#endif // TOKENIZER_H_
+#endif // CLI_TOKENIZER_H_

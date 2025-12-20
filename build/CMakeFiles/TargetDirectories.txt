@@ -1,0 +1,7 @@
+/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/ppt-cli.dir
+/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/edit_cache.dir
+/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/rebuild_cache.dir
+/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/list_install_components.dir
+/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/install.dir
+/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/install/local.dir
+/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/install/strip.dir

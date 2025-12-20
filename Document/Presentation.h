@@ -1,5 +1,5 @@
-#ifndef PRESENTATION_H_
-#define PRESENTATION_H_
+#ifndef PPT_PRESENTATION_H_
+#define PPT_PRESENTATION_H_
 
 #include "Slide.h"
 #include <vector>
@@ -46,4 +46,4 @@ public:
 
 } // namespace ppt
 
-#endif // PRESENTATION_H_
+#endif // PPT_PRESENTATION_H_

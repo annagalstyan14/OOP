@@ -4,7 +4,6 @@
 #include "ICommand.h"
 #include "Argument.h"
 #include <vector>
-#include "../../Action/Editor.h" // Include the full definition of Editor
 
 namespace ppt_cli {
 
