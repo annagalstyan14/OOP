@@ -15,11 +15,18 @@ g++ -std=c++17 -Wall -Wextra -O2 \
     $JSON_INCLUDE \
     -I. \
     main.cpp \
+    Document/Presentation.cpp \
+    Document/Slide.cpp \
     CLI/Argument.cpp \
-    CLI/Tokenizer.cpp \
-    CLI/Parser.cpp \
-    CLI/CommandFactory.cpp \
-    CLI/Controller.cpp \
+    CLI/Parser/Tokenizer.cpp \
+    CLI/Parser/Parser.cpp \
+    CLI/Command/AddCommand.cpp \
+    CLI/Command/RemoveCommand.cpp \
+    CLI/Command/ListCommand.cpp \
+    CLI/Command/SaveCommand.cpp \
+    CLI/Command/LoadCommand.cpp \
+    CLI/Repository/CommandRepository.cpp \
+    CLI/Controller/Controller.cpp \
     Document/BaseSlideObject.cpp \
     Document/Rectangle.cpp \
     Document/Circle.cpp \

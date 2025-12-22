@@ -1,6 +1,4 @@
 /Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/ppt-cli.dir
-/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/run_tests.dir
-/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/test.dir
 /Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/edit_cache.dir
 /Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/rebuild_cache.dir
 /Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles/list_install_components.dir

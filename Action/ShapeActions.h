@@ -2,6 +2,7 @@
 #define SHAPE_ACTIONS_H_
 
 #include "IAction.h"
+#include "../Document/TextObject.h"
 #include <iostream>
 #include <memory>
 

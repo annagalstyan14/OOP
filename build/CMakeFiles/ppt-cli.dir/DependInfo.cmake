@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp" "CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp" "CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp" "CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp" "CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o.d"
@@ -24,11 +25,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp" "CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp" "CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp" "CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o.d"
-  "/Users/annagalstyan/Desktop/projects/OOP/Main.cpp" "CMakeFiles/ppt-cli.dir/Main.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Main.cpp.o.d"
-  "/Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonDeserializer.cpp" "CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o.d"
-  "/Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonSerializer.cpp" "CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o.d"
-  "/Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp" "CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o.d"
-  "/Users/annagalstyan/Desktop/projects/OOP/Visualization/SvgShapeRenderer.cpp" "CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o.d"
+  "/Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp" "CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o.d"
+  "/Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp" "CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o.d"
+  "/Users/annagalstyan/Desktop/projects/OOP/main.cpp" "CMakeFiles/ppt-cli.dir/main.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

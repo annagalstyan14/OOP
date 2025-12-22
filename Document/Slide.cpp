@@ -1,6 +1,9 @@
 #include "Slide.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "Line.h"
+#include "TextObject.h"
 #include <algorithm>
-#include <stdexcept>
 
 namespace ppt {
 

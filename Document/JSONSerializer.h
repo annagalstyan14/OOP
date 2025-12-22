@@ -2,6 +2,9 @@
 #define JSON_SERIALIZER_H_
 
 #include "Presentation.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "Line.h"
 #include "TextObject.h"
 #include <string>
 #include <fstream>

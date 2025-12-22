@@ -6,7 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include
 
-CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic
-
-CXX_FLAGS = -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic
+CXX_FLAGS = -std=gnu++17 -Wall -Wextra -Wpedantic
 

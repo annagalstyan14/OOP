@@ -72,24 +72,52 @@ include CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/codegen:
 .PHONY : CMakeFiles/ppt-cli.dir/codegen
 
-CMakeFiles/ppt-cli.dir/Main.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/Main.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Main.cpp
-CMakeFiles/ppt-cli.dir/Main.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ppt-cli.dir/Main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Main.cpp.o -MF CMakeFiles/ppt-cli.dir/Main.cpp.o.d -o CMakeFiles/ppt-cli.dir/Main.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Main.cpp
+CMakeFiles/ppt-cli.dir/main.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/main.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/main.cpp
+CMakeFiles/ppt-cli.dir/main.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ppt-cli.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/main.cpp.o -MF CMakeFiles/ppt-cli.dir/main.cpp.o.d -o CMakeFiles/ppt-cli.dir/main.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/main.cpp
 
-CMakeFiles/ppt-cli.dir/Main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Main.cpp > CMakeFiles/ppt-cli.dir/Main.cpp.i
+CMakeFiles/ppt-cli.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/main.cpp > CMakeFiles/ppt-cli.dir/main.cpp.i
 
-CMakeFiles/ppt-cli.dir/Main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Main.cpp -o CMakeFiles/ppt-cli.dir/Main.cpp.s
+CMakeFiles/ppt-cli.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/main.cpp -o CMakeFiles/ppt-cli.dir/main.cpp.s
+
+CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp
+CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp
+
+CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp > CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.i
+
+CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp -o CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.s
+
+CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp
+CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp
+
+CMakeFiles/ppt-cli.dir/Document/Slide.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Document/Slide.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp > CMakeFiles/ppt-cli.dir/Document/Slide.cpp.i
+
+CMakeFiles/ppt-cli.dir/Document/Slide.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Document/Slide.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp -o CMakeFiles/ppt-cli.dir/Document/Slide.cpp.s
 
 CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/BaseSlideObject.cpp
 CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/BaseSlideObject.cpp
 
 CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.i: cmake_force
@@ -103,7 +131,7 @@ CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.s: cmake_force
 CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp
 CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp
 
 CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.i: cmake_force
@@ -117,7 +145,7 @@ CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.s: cmake_force
 CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/Circle.cpp
 CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Circle.cpp
 
 CMakeFiles/ppt-cli.dir/Document/Circle.cpp.i: cmake_force
@@ -131,7 +159,7 @@ CMakeFiles/ppt-cli.dir/Document/Circle.cpp.s: cmake_force
 CMakeFiles/ppt-cli.dir/Document/Line.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/Document/Line.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/Line.cpp
 CMakeFiles/ppt-cli.dir/Document/Line.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Line.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Line.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/Line.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/Line.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/Line.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Line.cpp
 
 CMakeFiles/ppt-cli.dir/Document/Line.cpp.i: cmake_force
@@ -145,7 +173,7 @@ CMakeFiles/ppt-cli.dir/Document/Line.cpp.s: cmake_force
 CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp
 CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp
 
 CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.i: cmake_force
@@ -156,108 +184,24 @@ CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp -o CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.s
 
-CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp
-CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp
+CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp
+CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp
 
-CMakeFiles/ppt-cli.dir/Document/Slide.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Document/Slide.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp > CMakeFiles/ppt-cli.dir/Document/Slide.cpp.i
+CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp > CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.i
 
-CMakeFiles/ppt-cli.dir/Document/Slide.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Document/Slide.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp -o CMakeFiles/ppt-cli.dir/Document/Slide.cpp.s
-
-CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp
-CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o -MF CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o.d -o CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp
-
-CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp > CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.i
-
-CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp -o CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.s
-
-CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp
-CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp
-
-CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.i
-
-CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.s
-
-CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp
-CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp
-
-CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.i
-
-CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.s
-
-CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp
-CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp
-
-CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.i
-
-CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.s
-
-CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp
-CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp
-
-CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.i
-
-CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.s
-
-CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp
-CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp
-
-CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.i
-
-CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.s
+CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp -o CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.s
 
 CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Tokenizer.cpp
 CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Tokenizer.cpp
 
 CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.i: cmake_force
@@ -271,7 +215,7 @@ CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.s: cmake_force
 CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Parser.cpp
 CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Parser.cpp
 
 CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.i: cmake_force
@@ -282,10 +226,80 @@ CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Parser.cpp -o CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.s
 
+CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp
+CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp
+
+CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.i
+
+CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.s
+
+CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp
+CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp
+
+CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.i
+
+CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.s
+
+CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp
+CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp
+
+CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.i
+
+CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.s
+
+CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp
+CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp
+
+CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.i
+
+CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.s
+
+CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp
+CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp
+
+CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp > CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.i
+
+CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp -o CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.s
+
 CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/CommandRepository.cpp
 CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/CommandRepository.cpp
 
 CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.i: cmake_force
@@ -299,7 +313,7 @@ CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.s: cmake_force
 CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
 CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/Controller.cpp
 CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o -MF CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o.d -o CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/Controller.cpp
 
 CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.i: cmake_force
@@ -310,113 +324,83 @@ CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/Controller.cpp -o CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.s
 
-CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonSerializer.cpp
-CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o -MF CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o.d -o CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonSerializer.cpp
+CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp
+CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o -MF CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o.d -o CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp
 
-CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonSerializer.cpp > CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.i
+CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp > CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.i
 
-CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonSerializer.cpp -o CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.s
+CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp -o CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.s
 
-CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonDeserializer.cpp
-CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o -MF CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o.d -o CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonDeserializer.cpp
+CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
+CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp
+CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o -MF CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o.d -o CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp
 
-CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonDeserializer.cpp > CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.i
+CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp > CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.i
 
-CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Serialization/JsonDeserializer.cpp -o CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.s
-
-CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Visualization/SvgShapeRenderer.cpp
-CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o -MF CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o.d -o CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Visualization/SvgShapeRenderer.cpp
-
-CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Visualization/SvgShapeRenderer.cpp > CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.i
-
-CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Visualization/SvgShapeRenderer.cpp -o CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.s
-
-CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o: CMakeFiles/ppt-cli.dir/flags.make
-CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o: /Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp
-CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o: CMakeFiles/ppt-cli.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o -MF CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o.d -o CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp
-
-CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp > CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.i
-
-CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Visualization/SlideRenderer.cpp -o CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.s
+CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp -o CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.s
 
 # Object files for target ppt-cli
 ppt__cli_OBJECTS = \
-"CMakeFiles/ppt-cli.dir/Main.cpp.o" \
+"CMakeFiles/ppt-cli.dir/main.cpp.o" \
+"CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o" \
+"CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o" \
 "CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o" \
 "CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o" \
 "CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o" \
 "CMakeFiles/ppt-cli.dir/Document/Line.cpp.o" \
 "CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o" \
-"CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o" \
-"CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o" \
+"CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o" \
+"CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o" \
+"CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o" \
 "CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o" \
 "CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o" \
 "CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o" \
 "CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o" \
 "CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o" \
-"CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o" \
-"CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o" \
 "CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o" \
 "CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o" \
-"CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o" \
-"CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o" \
-"CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o" \
-"CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o"
+"CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o" \
+"CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o"
 
 # External object files for target ppt-cli
 ppt__cli_EXTERNAL_OBJECTS =
 
-ppt-cli: CMakeFiles/ppt-cli.dir/Main.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/main.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/Document/Line.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/Serialization/JsonSerializer.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/Serialization/JsonDeserializer.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/Visualization/SvgShapeRenderer.cpp.o
-ppt-cli: CMakeFiles/ppt-cli.dir/Visualization/SlideRenderer.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o
+ppt-cli: CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o
 ppt-cli: CMakeFiles/ppt-cli.dir/build.make
 ppt-cli: CMakeFiles/ppt-cli.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable ppt-cli"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/annagalstyan/Desktop/projects/OOP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable ppt-cli"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ppt-cli.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

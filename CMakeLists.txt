@@ -13,6 +13,8 @@ endif()
 
 # Document sources
 set(DOCUMENT_SOURCES
+    Document/Presentation.cpp
+    Document/Slide.cpp
     Document/BaseSlideObject.cpp
     Document/Rectangle.cpp
     Document/Circle.cpp
@@ -23,10 +25,15 @@ set(DOCUMENT_SOURCES
 # CLI sources
 set(CLI_SOURCES
     CLI/Argument.cpp
-    CLI/Tokenizer.cpp
-    CLI/Parser.cpp
-    CLI/CommandFactory.cpp
-    CLI/Controller.cpp
+    CLI/Parser/Tokenizer.cpp
+    CLI/Parser/Parser.cpp
+    CLI/Command/AddCommand.cpp
+    CLI/Command/RemoveCommand.cpp
+    CLI/Command/ListCommand.cpp
+    CLI/Command/SaveCommand.cpp
+    CLI/Command/LoadCommand.cpp
+    CLI/Repository/CommandRepository.cpp
+    CLI/Controller/Controller.cpp
 )
 
 # Rendering sources

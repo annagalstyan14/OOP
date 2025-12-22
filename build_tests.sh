@@ -1,39 +1,21 @@
 #!/bin/bash
 
-# Build and run unit tests
-# Dependencies:
-#   Ubuntu: sudo apt install nlohmann-json3-dev
-#   macOS:  brew install nlohmann-json
+#!/bin/bash
 
-# Detect OS and set include path
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    JSON_INCLUDE="-I$(brew --prefix nlohmann-json)/include"
-else
-    JSON_INCLUDE="-I/usr/include"
-fi
+# Build and run unit tests via CMake
 
-echo "Building unit tests..."
+set -e
 
-g++ -std=c++17 -Wall -Wextra -g \
-    $JSON_INCLUDE \
-    -I. \
-    Tests/TestRunner.cpp \
-    Document/Presentation.cpp \
-    Document/Slide.cpp \
-    Document/BaseSlideObject.cpp \
-    Document/Rectangle.cpp \
-    Document/Circle.cpp \
-    Document/Line.cpp \
-    Document/TextObject.cpp \
-    Rendering/SVGPainter.cpp \
-    -o run_tests
+echo "Configuring tests with CMake..."
 
-if [ $? -eq 0 ]; then
-    echo "Build complete. Running tests..."
-    echo ""
-    ./run_tests
-    exit $?
-else
-    echo "Build failed!"
-    exit 1
-fi
+mkdir -p build
+cd build
+
+cmake .. >/dev/null
+
+echo "Building unit tests (run_tests target)..."
+cmake --build . --target run_tests >/dev/null
+
+echo "Running tests..."
+./run_tests
+
