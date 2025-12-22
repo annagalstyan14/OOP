@@ -318,6 +318,30 @@ CLI/Command/SaveCommand.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.s
 .PHONY : CLI/Command/SaveCommand.cpp.s
 
+CLI/Command/SetCommand.o: CLI/Command/SetCommand.cpp.o
+.PHONY : CLI/Command/SetCommand.o
+
+# target to build an object file
+CLI/Command/SetCommand.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o
+.PHONY : CLI/Command/SetCommand.cpp.o
+
+CLI/Command/SetCommand.i: CLI/Command/SetCommand.cpp.i
+.PHONY : CLI/Command/SetCommand.i
+
+# target to preprocess a source file
+CLI/Command/SetCommand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.i
+.PHONY : CLI/Command/SetCommand.cpp.i
+
+CLI/Command/SetCommand.s: CLI/Command/SetCommand.cpp.s
+.PHONY : CLI/Command/SetCommand.s
+
+# target to generate assembly for a file
+CLI/Command/SetCommand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ppt-cli.dir/build.make CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.s
+.PHONY : CLI/Command/SetCommand.cpp.s
+
 CLI/Controller/Controller.o: CLI/Controller/Controller.cpp.o
 .PHONY : CLI/Controller/Controller.o
 
@@ -685,6 +709,9 @@ help:
 	@echo "... CLI/Command/SaveCommand.o"
 	@echo "... CLI/Command/SaveCommand.i"
 	@echo "... CLI/Command/SaveCommand.s"
+	@echo "... CLI/Command/SetCommand.o"
+	@echo "... CLI/Command/SetCommand.i"
+	@echo "... CLI/Command/SetCommand.s"
 	@echo "... CLI/Controller/Controller.o"
 	@echo "... CLI/Controller/Controller.i"
 	@echo "... CLI/Controller/Controller.s"

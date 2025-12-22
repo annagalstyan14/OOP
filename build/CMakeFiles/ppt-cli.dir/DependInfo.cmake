@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp" "CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp" "CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp" "CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o.d"
+  "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SetCommand.cpp" "CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/Controller.cpp" "CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Parser.cpp" "CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o.d"
   "/Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Tokenizer.cpp" "CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o" "gcc" "CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o.d"

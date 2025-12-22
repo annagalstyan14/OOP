@@ -50,14 +50,7 @@ void SVGPainter::paint(const SlideObject& object) {
         }
     }
     
-    // Draw label for shapes (not text)
-    if (object.getType() != ObjectType::TEXT) {
-        Point labelPos(
-            geom.getX() + geom.getWidth() / 2,
-            geom.getY() + geom.getHeight() / 2 + 5
-        );
-        canvas_->drawText(labelPos, object.getName(), "Arial", 12, "white");
-    }
+    // NOTE: Removed shape name label rendering for cleaner SVG output
 }
 
 void SVGPainter::paintSlide(const Slide& slide) {

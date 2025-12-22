@@ -810,6 +810,7 @@ CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o: \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Repository/../Command/ICommand.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Repository/../Command/Argument.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Repository/CommandRepository.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Help.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/Presentation.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Action/Editor.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/JSONSerializer.h \

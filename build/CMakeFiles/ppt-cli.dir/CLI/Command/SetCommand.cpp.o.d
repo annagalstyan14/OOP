@@ -1,13 +1,11 @@
-CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o: \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/CommandRepository.cpp \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/CommandRepository.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/MetaCommand.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/CommandCreator.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/ICommand.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/Presentation.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/Slide.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/SlideObject.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/../Geometry/Geometry.h \
+CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o: \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SetCommand.cpp \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SetCommand.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ICommand.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Presentation.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Slide.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/SlideObject.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/../Geometry/Geometry.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -799,14 +797,7 @@ CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Action/Editor.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Action/IAction.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Action/../Document/Presentation.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/Argument.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/CommandCreators.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/AddCommand.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/RemoveCommand.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/ListCommand.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/SaveCommand.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/LoadCommand.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/SetCommand.h
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Action/Editor.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Action/IAction.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Action/../Document/Presentation.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/Argument.h

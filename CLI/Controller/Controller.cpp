@@ -10,7 +10,7 @@ Controller::Controller()
 
 void Controller::start() {
     std::cout << "PPT CLI - Presentation Manager\n";
-    std::cout << "Commands: new, open <file>, save [file], add, remove, list, undo, redo, export, exit\n";
+    std::cout << "Type 'help' for a list of commands.\n";
     std::cout << "Start by typing 'new' to create a new presentation or 'open <filename>' to load one.\n\n";
     
     while (running_) {
@@ -69,10 +69,28 @@ bool Controller::isSpecialCommand(const std::string& word) const {
            word == "new" || word == "open" || 
            word == "save" || word == "undo" || 
            word == "redo" || word == "export" ||
-           word == "print";
+           word == "print" || word == "help" ||
+           word == "?" || word == "h";
 }
 
 void Controller::handleSpecialCommands(const std::string& line, const std::string& firstWord) {
+    // Help commands
+    if (firstWord == "help" || firstWord == "?" || firstWord == "h") {
+        size_t pos = line.find(' ');
+        if (pos != std::string::npos) {
+            std::string topic = line.substr(pos + 1);
+            topic.erase(0, topic.find_first_not_of(" \t"));
+            topic.erase(topic.find_last_not_of(" \t") + 1);
+            std::transform(topic.begin(), topic.end(), topic.begin(), ::tolower);
+            if (!topic.empty()) {
+                Help::showCommand(topic);
+                return;
+            }
+        }
+        Help::showAll();
+        return;
+    }
+    
     if (firstWord == "exit" || firstWord == "quit") {
         if (presentationOpen_) {
             std::cout << "Save before exiting? (y/n): ";

@@ -1,23 +1,66 @@
 {
-    "nextSlideId": 4,
+    "nextSlideId": 2,
     "slides": [
         {
             "id": 1,
-            "nextObjectId": 1,
-            "objects": [],
-            "title": "Welcome"
-        },
-        {
-            "id": 2,
-            "nextObjectId": 1,
-            "objects": [],
-            "title": "Features"
-        },
-        {
-            "id": 3,
-            "nextObjectId": 1,
-            "objects": [],
-            "title": "Contact"
+            "nextObjectId": 4,
+            "objects": [
+                {
+                    "color": "blue",
+                    "fillColor": "blue",
+                    "geometry": {
+                        "bottomRight": {
+                            "x": 400.0,
+                            "y": 250.0
+                        },
+                        "topLeft": {
+                            "x": 100.0,
+                            "y": 100.0
+                        }
+                    },
+                    "id": 1,
+                    "name": "rectangle1",
+                    "strokeColor": "black",
+                    "type": "rectangle"
+                },
+                {
+                    "color": "red",
+                    "fillColor": "red",
+                    "geometry": {
+                        "bottomRight": {
+                            "x": 650.0,
+                            "y": 250.0
+                        },
+                        "topLeft": {
+                            "x": 500.0,
+                            "y": 100.0
+                        }
+                    },
+                    "id": 2,
+                    "name": "circle1",
+                    "strokeColor": "black",
+                    "type": "circle"
+                },
+                {
+                    "color": "green",
+                    "fillColor": "green",
+                    "geometry": {
+                        "bottomRight": {
+                            "x": 300.0,
+                            "y": 470.0
+                        },
+                        "topLeft": {
+                            "x": 100.0,
+                            "y": 350.0
+                        }
+                    },
+                    "id": 3,
+                    "name": "rectangle1",
+                    "strokeColor": "black",
+                    "type": "rectangle"
+                }
+            ],
+            "title": "Demo"
         }
     ]
 }

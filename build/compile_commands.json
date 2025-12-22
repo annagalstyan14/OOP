@@ -1,121 +1,127 @@
 [
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/main.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/main.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/main.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/main.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/main.cpp",
   "output": "CMakeFiles/ppt-cli.dir/main.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Presentation.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Document/Presentation.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Slide.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Document/Slide.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/BaseSlideObject.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/BaseSlideObject.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/BaseSlideObject.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Document/BaseSlideObject.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Rectangle.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Document/Rectangle.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Circle.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Circle.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Circle.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Document/Circle.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Line.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Line.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/Line.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/Line.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/Line.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Document/Line.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Document/TextObject.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Document/TextObject.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Argument.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Argument.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Tokenizer.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Tokenizer.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Tokenizer.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Parser/Tokenizer.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Parser.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Parser.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/Parser.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/AddCommand.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Command/AddCommand.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/RemoveCommand.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/ListCommand.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Command/ListCommand.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SaveCommand.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/LoadCommand.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/CommandRepository.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SetCommand.cpp",
+  "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Command/SetCommand.cpp",
+  "output": "CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o"
+},
+{
+  "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/CommandRepository.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/CommandRepository.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/Controller.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/Controller.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/Controller.cpp",
   "output": "CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Rendering/SVGPainter.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Rendering/SVGPainter.cpp.o"
 },
 {
   "directory": "/Users/annagalstyan/Desktop/projects/OOP/build",
-  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp",
+  "command": "/usr/bin/c++  -I/Users/annagalstyan/Desktop/projects/OOP -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o -c /Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp",
   "file": "/Users/annagalstyan/Desktop/projects/OOP/Rendering/RenderCommand.cpp",
   "output": "CMakeFiles/ppt-cli.dir/Rendering/RenderCommand.cpp.o"
 }

@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ppt-cli.dir/CLI/Command/RemoveCommand.cpp.o.d"
   "CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o"
   "CMakeFiles/ppt-cli.dir/CLI/Command/SaveCommand.cpp.o.d"
+  "CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o"
+  "CMakeFiles/ppt-cli.dir/CLI/Command/SetCommand.cpp.o.d"
   "CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o"
   "CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o.d"
   "CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o"

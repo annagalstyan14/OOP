@@ -3,6 +3,7 @@
 
 #include "../Parser/Parser.h"
 #include "../Repository/CommandRepository.h"
+#include "../Help.h"
 #include "../../Document/Presentation.h"
 #include "../../Action/Editor.h"
 #include "../../Document/JSONSerializer.h"
