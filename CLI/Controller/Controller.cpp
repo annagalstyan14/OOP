@@ -174,62 +174,22 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             baseName.erase(0, baseName.find_first_not_of(" \t"));
         }
         
-        // Export slides to SVG
+        // Export slides to SVG using SVGPainter (supports filled shapes)
         bool success = true;
         for (size_t i = 0; i < presentation_.size(); ++i) {
             const auto* slide = presentation_.getSlideAt(i);
             if (!slide) continue;
             
             std::string filename = baseName + "_" + std::to_string(i + 1) + ".svg";
-            std::ofstream file(filename);
-            if (!file) {
+            
+            // Use SVGPainter for proper rendering with fill colors
+            ppt::SVGPainter painter(800, 600);
+            painter.paintSlide(*slide);
+            
+            if (!painter.saveToFile(filename)) {
                 success = false;
                 continue;
             }
-            
-            // Generate SVG
-            file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-            file << "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"600\">\n";
-            file << "  <rect width=\"100%\" height=\"100%\" fill=\"white\"/>\n";
-            file << "  <text x=\"400\" y=\"30\" text-anchor=\"middle\" font-size=\"24\">" 
-                 << slide->getTitle() << "</text>\n";
-            
-            for (const auto& obj : slide->getObjects()) {
-                if (!obj) continue;
-                const auto& geom = obj->getGeometry();
-                std::string color = obj->getColor();
-                double x = geom.getX();
-                double y = geom.getY();
-                double w = geom.getWidth();
-                double h = geom.getHeight();
-                
-                switch (obj->getType()) {
-                    case ppt::ObjectType::RECTANGLE:
-                        file << "  <rect x=\"" << x << "\" y=\"" << y 
-                             << "\" width=\"" << w << "\" height=\"" << h
-                             << "\" fill=\"none\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
-                        break;
-                    case ppt::ObjectType::CIRCLE:
-                        file << "  <ellipse cx=\"" << (x + w/2)
-                             << "\" cy=\"" << (y + h/2)
-                             << "\" rx=\"" << w/2 << "\" ry=\"" << h/2
-                             << "\" fill=\"none\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
-                        break;
-                    case ppt::ObjectType::LINE:
-                        file << "  <line x1=\"" << x << "\" y1=\"" << y
-                             << "\" x2=\"" << (x + w) << "\" y2=\"" << (y + h)
-                             << "\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
-                        break;
-                    case ppt::ObjectType::TEXT:
-                        file << "  <text x=\"" << x << "\" y=\"" << y
-                             << "\" font-size=\"16\" fill=\"" << color << "\">" 
-                             << obj->getName() << "</text>\n";
-                        break;
-                }
-            }
-            
-            file << "</svg>\n";
-            file.close();
         }
         
         if (success) {

@@ -28,7 +28,7 @@ const Parser::ParserState Parser::transitionTable[][19] = {
                    ParserState::ARG, ParserState::ARG, ParserState::ARG,
                    ParserState::ARG, ParserState::ARG, ParserState::DONE },
 
-    /* ARG */    { ParserState::ERROR, ParserState::ERROR, ParserState::ERROR,
+    /* ARG */    { ParserState::ARG, ParserState::ERROR, ParserState::ERROR,
                    ParserState::ERROR, ParserState::ERROR, ParserState::ERROR,
                    ParserState::ERROR, ParserState::ERROR, ParserState::ERROR, ParserState::ERROR,
                    ParserState::ARG, ParserState::ARG, ParserState::ARG,
@@ -119,7 +119,8 @@ std::unique_ptr<ICommand> Parser::parse() {
                         return nullptr;
                     }
                     args.push_back(numTok.getValue());
-                } else if (cls == TokenClass::NUMBER || cls == TokenClass::STRING) {
+                } else if (cls == TokenClass::NUMBER || cls == TokenClass::STRING || cls == TokenClass::UNKNOWN) {
+                    // Accept UNKNOWN tokens as strings (unquoted identifiers like "circle", "red", etc.)
                     args.push_back(tok.getValue());
                 }
                 break;

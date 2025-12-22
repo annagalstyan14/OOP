@@ -800,11 +800,6 @@ CMakeFiles/ppt-cli.dir/CLI/Parser/Parser.cpp.o: \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Document/SlideObject.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Document/../Geometry/Geometry.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Document/Rectangle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Document/BaseSlideObject.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Document/Circle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Document/Line.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Document/TextObject.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Action/Editor.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Action/IAction.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Parser/../Command/../../Action/../Document/Presentation.h \

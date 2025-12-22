@@ -30,6 +30,12 @@ public:
     virtual const std::string& getColor() const = 0;
     virtual void setColor(const std::string& color) = 0;
     
+    // Fill and stroke colors (for shapes)
+    virtual const std::string& getFillColor() const = 0;
+    virtual void setFillColor(const std::string& color) = 0;
+    virtual const std::string& getStrokeColor() const = 0;
+    virtual void setStrokeColor(const std::string& color) = 0;
+    
     virtual const Geometry& getGeometry() const = 0;
     virtual Geometry& getGeometry() = 0;
     virtual void setGeometry(const Geometry& geom) = 0;

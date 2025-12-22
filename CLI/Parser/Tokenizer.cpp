@@ -50,7 +50,8 @@ Token Tokenizer::getToken() {
         std::string word = readWord();
         auto it = keywordMap_.find(word);
         Keyword kw = it != keywordMap_.end() ? it->second : Keyword::UNKNOWN;
-        TokenType type = (kw != Keyword::UNKNOWN) ? TokenType::KEYWORD : TokenType::UNKNOWN;
+        // If it's a keyword, return KEYWORD token, otherwise treat as STRING (unquoted identifier)
+        TokenType type = (kw != Keyword::UNKNOWN) ? TokenType::KEYWORD : TokenType::STRING;
         return Token(type, word, kw);
     }
     if (c == '=' || c == ';' || c == '{' || c == '}' || c == '(' || c == ')') {

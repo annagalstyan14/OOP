@@ -801,11 +801,6 @@ CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o: \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Document/SlideObject.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Document/../Geometry/Geometry.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Document/Rectangle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Document/BaseSlideObject.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Document/Circle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Document/Line.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Document/TextObject.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Action/Editor.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Action/IAction.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../Parser/../Command/../../Action/../Document/Presentation.h \
@@ -818,6 +813,11 @@ CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o: \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/Presentation.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Action/Editor.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/JSONSerializer.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/Rectangle.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/BaseSlideObject.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/SlideObject.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/Circle.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/Line.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Document/TextObject.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path.h \
@@ -910,10 +910,13 @@ CMakeFiles/ppt-cli.dir/CLI/Controller/Controller.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /opt/homebrew/include/nlohmann/detail/macro_unscope.hpp \
   /opt/homebrew/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Visualization/SlideRenderer.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Visualization/../Document/Slide_cli.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Visualization/../Document/Elements/IShape.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Visualization/../Document/Elements/BoundingBox.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Visualization/../Document/Elements/TextArea.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Visualization/IShapeRenderer.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Visualization/SvgShapeRenderer.h
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/SVGPainter.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/IPainter.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/../Document/SlideObject.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/../Document/Slide.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/SVGCanvas.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/ICanvas.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/../Geometry/Geometry.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/PaintProperties.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/../Document/Circle.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Controller/../../Rendering/../Document/TextObject.h

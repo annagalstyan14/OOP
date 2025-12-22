@@ -797,16 +797,16 @@ CMakeFiles/ppt-cli.dir/CLI/Command/LoadCommand.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Rectangle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/BaseSlideObject.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Circle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Line.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/TextObject.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Action/Editor.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Action/IAction.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Action/../Document/Presentation.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/Argument.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/JSONSerializer.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Rectangle.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/BaseSlideObject.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Circle.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/Line.h \
+  /Users/annagalstyan/Desktop/projects/OOP/CLI/Command/../../Document/TextObject.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \

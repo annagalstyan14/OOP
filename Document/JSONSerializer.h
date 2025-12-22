@@ -32,7 +32,9 @@ public:
         o["id"] = obj.getId();
         o["name"] = obj.getName();
         o["type"] = SlideObject::typeToString(obj.getType());
-        o["color"] = obj.getColor();
+        o["color"] = obj.getColor();  // Legacy
+        o["fillColor"] = obj.getFillColor();
+        o["strokeColor"] = obj.getStrokeColor();
         o["geometry"] = serializeGeometry(obj.getGeometry());
         
         if (obj.getType() == ObjectType::TEXT) {
@@ -106,24 +108,26 @@ public:
         std::string typeStr = o.value("type", "rectangle");
         ObjectType type = SlideObject::stringToType(typeStr);
         std::string name = o.value("name", "");
-        std::string color = o.value("color", "black");
+        std::string color = o.value("color", "black");  // Legacy
+        std::string fillColor = o.value("fillColor", color);
+        std::string strokeColor = o.value("strokeColor", "black");
         int id = o.value("id", 1);
         
         std::unique_ptr<SlideObject> obj;
         
         switch (type) {
             case ObjectType::RECTANGLE:
-                obj = std::make_unique<Rectangle>(id, name, color);
+                obj = std::make_unique<Rectangle>(id, name, fillColor);
                 break;
             case ObjectType::CIRCLE:
-                obj = std::make_unique<Circle>(id, name, color);
+                obj = std::make_unique<Circle>(id, name, fillColor);
                 break;
             case ObjectType::LINE:
-                obj = std::make_unique<Line>(id, name, color);
+                obj = std::make_unique<Line>(id, name, fillColor);
                 break;
             case ObjectType::TEXT: {
                 auto text = std::make_unique<TextObject>(id, name, 
-                    o.value("content", ""), color);
+                    o.value("content", ""), fillColor);
                 text->setFontFamily(o.value("fontFamily", "Arial"));
                 text->setFontSize(o.value("fontSize", 12));
                 text->setAlignment(o.value("alignment", "left"));
@@ -131,6 +135,10 @@ public:
                 break;
             }
         }
+        
+        // Set fill and stroke colors
+        obj->setFillColor(fillColor);
+        obj->setStrokeColor(strokeColor);
         
         if (o.contains("geometry")) {
             obj->setGeometry(deserializeGeometry(o["geometry"]));

@@ -10,7 +10,9 @@ protected:
     int id_;
     std::string name_;
     ObjectType type_;
-    std::string color_;
+    std::string color_;  // Legacy: for backward compatibility
+    std::string fillColor_;    // Fill color (use "none" for outline-only)
+    std::string strokeColor_;  // Stroke/border color
     Geometry geometry_;
 
 public:
@@ -29,7 +31,15 @@ public:
     ObjectType getType() const override { return type_; }
     
     const std::string& getColor() const override { return color_; }
-    void setColor(const std::string& color) override { color_ = color; }
+    void setColor(const std::string& color) override { 
+        color_ = color;
+        fillColor_ = color;  // Update fill color when legacy color is set
+    }
+    
+    const std::string& getFillColor() const override { return fillColor_; }
+    void setFillColor(const std::string& color) override { fillColor_ = color; }
+    const std::string& getStrokeColor() const override { return strokeColor_; }
+    void setStrokeColor(const std::string& color) override { strokeColor_ = color; }
     
     const Geometry& getGeometry() const override { return geometry_; }
     Geometry& getGeometry() override { return geometry_; }

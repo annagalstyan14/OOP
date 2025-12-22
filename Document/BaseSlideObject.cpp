@@ -4,13 +4,16 @@ namespace ppt {
 
 BaseSlideObject::BaseSlideObject(int id, const std::string& name, ObjectType type, 
                                   const std::string& color)
-    : id_(id), name_(name), type_(type), color_(color) {}
+    : id_(id), name_(name), type_(type), color_(color), 
+      fillColor_(color), strokeColor_("black") {}
 
 BaseSlideObject::BaseSlideObject(const BaseSlideObject& other)
     : id_(other.id_)
     , name_(other.name_)
     , type_(other.type_)
     , color_(other.color_)
+    , fillColor_(other.fillColor_)
+    , strokeColor_(other.strokeColor_)
     , geometry_(other.geometry_) {}
 
 BaseSlideObject& BaseSlideObject::operator=(const BaseSlideObject& other) {
@@ -19,6 +22,8 @@ BaseSlideObject& BaseSlideObject::operator=(const BaseSlideObject& other) {
         name_ = other.name_;
         type_ = other.type_;
         color_ = other.color_;
+        fillColor_ = other.fillColor_;
+        strokeColor_ = other.strokeColor_;
         geometry_ = other.geometry_;
     }
     return *this;

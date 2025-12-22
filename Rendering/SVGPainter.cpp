@@ -7,7 +7,12 @@ SVGPainter::SVGPainter(int width, int height)
     : canvas_(std::make_unique<SVGCanvas>(width, height)) {}
 
 void SVGPainter::paint(const SlideObject& object) {
-    PaintProperties props(object.getColor(), "black", 1.0);
+    // Use separate fill and stroke colors
+    std::string fillColor = object.getFillColor();
+    std::string strokeColor = object.getStrokeColor();
+    
+    // If fill is "none", use "none" for SVG (outline-only mode)
+    PaintProperties props(fillColor, strokeColor, 1.0);
     const Geometry& geom = object.getGeometry();
     
     switch (object.getType()) {

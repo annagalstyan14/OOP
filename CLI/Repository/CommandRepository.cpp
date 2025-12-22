@@ -28,6 +28,11 @@ CommandRepository::CommandRepository() {
         "load", "Load a presentation from a file", false,
         std::make_unique<LoadCommandCreator>()
     ));
+
+    registerCommand(std::make_unique<MetaCommand>(
+        "set", "Set properties of shapes (fill, stroke, position, size)", true,
+        std::make_unique<SetCommandCreator>()
+    ));
 }
 
 void CommandRepository::registerCommand(std::unique_ptr<MetaCommand> metaCommand) {

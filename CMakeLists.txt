@@ -32,6 +32,7 @@ set(CLI_SOURCES
     CLI/Command/ListCommand.cpp
     CLI/Command/SaveCommand.cpp
     CLI/Command/LoadCommand.cpp
+    CLI/Command/SetCommand.cpp
     CLI/Repository/CommandRepository.cpp
     CLI/Controller/Controller.cpp
 )

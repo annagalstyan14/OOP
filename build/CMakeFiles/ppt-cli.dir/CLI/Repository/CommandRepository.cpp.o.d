@@ -799,11 +799,6 @@ CMakeFiles/ppt-cli.dir/CLI/Repository/CommandRepository.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/Rectangle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/BaseSlideObject.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/Circle.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/Line.h \
-  /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Document/TextObject.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Action/Editor.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Action/IAction.h \
   /Users/annagalstyan/Desktop/projects/OOP/CLI/Repository/../Command/../../Action/../Document/Presentation.h \

@@ -6,6 +6,7 @@
 #include "../../Document/Presentation.h"
 #include "../../Action/Editor.h"
 #include "../../Document/JSONSerializer.h"
+#include "../../Rendering/SVGPainter.h"
 #include <string>
 #include <memory>
 #include <iostream>
