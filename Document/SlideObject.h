@@ -41,27 +41,24 @@ public:
     
     virtual void display(std::ostream& os = std::cout) const = 0;
     
-    static std::string typeToString(ObjectType type);
-    static ObjectType stringToType(const std::string& str);
-};
-
-inline std::string SlideObject::typeToString(ObjectType type) {
-    switch (type) {
-        case ObjectType::RECTANGLE: return "rectangle";
-        case ObjectType::CIRCLE:    return "circle";
-        case ObjectType::LINE:      return "line";
-        case ObjectType::TEXT:      return "text";
-        default:                    return "unknown";
+    static std::string typeToString(ObjectType type) {
+        switch (type) {
+            case ObjectType::RECTANGLE: return "rectangle";
+            case ObjectType::CIRCLE:    return "circle";
+            case ObjectType::LINE:      return "line";
+            case ObjectType::TEXT:      return "text";
+            default:                    return "unknown";
+        }
     }
-}
-
-inline ObjectType SlideObject::stringToType(const std::string& str) {
-    if (str == "rectangle") return ObjectType::RECTANGLE;
-    if (str == "circle" || str == "ellipse") return ObjectType::CIRCLE;
-    if (str == "line") return ObjectType::LINE;
-    if (str == "text") return ObjectType::TEXT;
-    return ObjectType::RECTANGLE;
-}
+    
+    static ObjectType stringToType(const std::string& str) {
+        if (str == "rectangle" || str == "rect") return ObjectType::RECTANGLE;
+        if (str == "circle" || str == "ellipse") return ObjectType::CIRCLE;
+        if (str == "line") return ObjectType::LINE;
+        if (str == "text") return ObjectType::TEXT;
+        return ObjectType::RECTANGLE;
+    }
+};
 
 } // namespace ppt
 

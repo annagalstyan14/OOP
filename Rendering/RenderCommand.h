@@ -2,41 +2,41 @@
 #define RENDER_COMMAND_H_
 
 #include "../Document/Presentation.h"
-#include "SVGPainter.h"
+#include "../Action/Editor.h"
+#include "IPainter.h"
 #include <string>
-#include <iostream>
+#include <memory>
 
 namespace ppt {
 
 class RenderCommand {
 public:
-    static bool exportSlide(const Slide& slide, const std::string& filename, 
-                            int width = 800, int height = 600) {
-        SVGPainter painter(width, height);
-        painter.paintSlide(slide);
-        return painter.saveToFile(filename);
-    }
+    enum class RenderTarget {
+        SLIDE,
+        PRESENTATION,
+        OBJECT
+    };
+
+private:
+    std::shared_ptr<IPainter> painter_;
+    std::string outputPath_;
+    RenderTarget target_;
+    int targetId_ = -1;
+
+public:
+    RenderCommand(std::shared_ptr<IPainter> painter, 
+                  const std::string& outputPath,
+                  RenderTarget target = RenderTarget::SLIDE);
     
-    static bool exportPresentation(const Presentation& pres, const std::string& baseName,
-                                   int width = 800, int height = 600) {
-        bool success = true;
-        
-        for (size_t i = 0; i < pres.size(); ++i) {
-            const Slide* slide = pres.getSlideAt(i);
-            if (!slide) continue;
-            
-            std::string filename = baseName + "_" + std::to_string(i + 1) + ".svg";
-            
-            if (exportSlide(*slide, filename, width, height)) {
-                std::cout << "Exported: " << filename << "\n";
-            } else {
-                std::cerr << "Failed to export: " << filename << "\n";
-                success = false;
-            }
-        }
-        
-        return success;
-    }
+    void setTargetId(int id);
+    
+    void execute(const Presentation& pres);
+    void renderSlide(const Slide& slide, const std::string& filename);
+    void renderPresentation(const Presentation& pres);
+    void renderObject(const SlideObject& object, const std::string& filename);
+    
+    const std::string& getOutputPath() const { return outputPath_; }
+    void setOutputPath(const std::string& path) { outputPath_ = path; }
 };
 
 } // namespace ppt

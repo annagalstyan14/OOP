@@ -1,4 +1,4 @@
-#include "CLI/Controller/Controller.h"
+#include "CLI/Controller.h"
 #include <iostream>
 
 int main() {

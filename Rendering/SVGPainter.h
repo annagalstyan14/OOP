@@ -3,9 +3,11 @@
 
 #include "IPainter.h"
 #include "SVGCanvas.h"
+#include "../Document/Slide.h"
 #include "../Document/Circle.h"
 #include "../Document/TextObject.h"
 #include <memory>
+#include <string>
 
 namespace ppt {
 
@@ -22,7 +24,9 @@ public:
     bool saveToFile(const std::string& filename) override;
     std::string getOutput() const override;
     
-    void clear();
+    void clear() override;
+    
+    SVGCanvas* getCanvas() { return canvas_.get(); }
 };
 
 } // namespace ppt

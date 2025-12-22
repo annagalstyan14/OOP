@@ -3,6 +3,7 @@
 
 #include "../Document/SlideObject.h"
 #include "../Document/Slide.h"
+#include <string>
 
 namespace ppt {
 
@@ -15,6 +16,8 @@ public:
     
     virtual bool saveToFile(const std::string& filename) = 0;
     virtual std::string getOutput() const = 0;
+    
+    virtual void clear() = 0;
 };
 
 } // namespace ppt

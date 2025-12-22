@@ -1,11 +1,10 @@
 #ifndef CLI_CONTROLLER_H_
 #define CLI_CONTROLLER_H_
 
-#include "../Parser/Parser.h"
-#include "../Repository/CommandRepository.h"
-#include "../../Document/Presentation.h"
-#include "../../Action/Editor.h"
-#include "../../Document/JSONSerializer.h"
+#include "Parser.h"
+#include "CommandFactory.h"
+#include "../Document/Presentation.h"
+#include "../Action/Editor.h"
 #include <string>
 #include <memory>
 #include <iostream>
@@ -19,16 +18,15 @@ public:
     void run(const std::string& line);
     void start();
     
-    ppt::Presentation& getPresentation() { return presentation_; }
-    ppt::Editor& getEditor() { return editor_; }
-    bool isRunning() const { return running_; }
-    void stop() { running_ = false; }
+    ppt::Presentation& getPresentation();
+    ppt::Editor& getEditor();
+    bool isRunning() const;
+    void stop();
 
 private:
     void handleSpecialCommands(const std::string& line, const std::string& firstWord);
     bool isSpecialCommand(const std::string& word) const;
     
-    CommandRepository commandRepo_;
     ppt::Presentation presentation_;
     ppt::Editor editor_;
     bool running_ = true;

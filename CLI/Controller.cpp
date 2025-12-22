@@ -1,4 +1,7 @@
 #include "Controller.h"
+#include "../Document/JSONSerializer.h"
+#include "../Rendering/SVGPainter.h"
+#include "../Rendering/RenderCommand.h"
 #include <sstream>
 #include <algorithm>
 #include <fstream>
@@ -8,9 +11,14 @@ namespace ppt_cli {
 Controller::Controller()
     : editor_(presentation_) {}
 
+ppt::Presentation& Controller::getPresentation() { return presentation_; }
+ppt::Editor& Controller::getEditor() { return editor_; }
+bool Controller::isRunning() const { return running_; }
+void Controller::stop() { running_ = false; }
+
 void Controller::start() {
     std::cout << "PPT CLI - Presentation Manager\n";
-    std::cout << "Commands: new, open <file>, save [file], add, remove, list, undo, redo, export, exit\n";
+    std::cout << "Commands: new, open <file>, save [file], add, remove, list, undo, redo, render, exit\n";
     std::cout << "Start by typing 'new' to create a new presentation or 'open <filename>' to load one.\n\n";
     
     while (running_) {
@@ -49,11 +57,17 @@ void Controller::run(const std::string& line) {
     }
     
     std::istringstream iss(trimmed);
-    Parser parser(iss, commandRepo_);
-    auto cmd = parser.parse();
+    Parser parser(iss);
+    ParsedCommand parsed = parser.parse();
     
-    if (!cmd) {
+    if (!parsed.isValid()) {
         std::cout << "Error: " << parser.getError() << "\n";
+        return;
+    }
+    
+    auto cmd = CommandFactory::create(parsed);
+    if (!cmd) {
+        std::cout << "Error: Unknown command '" << parsed.action << "'\n";
         return;
     }
     
@@ -69,7 +83,7 @@ bool Controller::isSpecialCommand(const std::string& word) const {
            word == "new" || word == "open" || 
            word == "save" || word == "undo" || 
            word == "redo" || word == "export" ||
-           word == "print";
+           word == "render" || word == "print";
 }
 
 void Controller::handleSpecialCommands(const std::string& line, const std::string& firstWord) {
@@ -80,7 +94,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             std::getline(std::cin, response);
             if (!response.empty() && (response[0] == 'y' || response[0] == 'Y')) {
                 std::string filename = currentFile_.empty() ? "presentation.json" : currentFile_;
-                if (ppt::JSONSerializer::save(presentation_, filename)) {
+                if (ppt::Serializer::saveToFile(presentation_, filename)) {
                     std::cout << "Saved to " << filename << "\n";
                 }
             }
@@ -108,7 +122,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
         std::string filename = line.substr(pos + 1);
         filename.erase(0, filename.find_first_not_of(" \t"));
         
-        if (ppt::JSONSerializer::load(presentation_, filename)) {
+        if (ppt::Deserializer::loadFromFile(presentation_, filename)) {
             editor_.clearHistory();
             presentationOpen_ = true;
             currentFile_ = filename;
@@ -134,7 +148,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             filename = currentFile_.empty() ? "presentation.json" : currentFile_;
         }
         
-        if (ppt::JSONSerializer::save(presentation_, filename)) {
+        if (ppt::Serializer::saveToFile(presentation_, filename)) {
             currentFile_ = filename;
             std::cout << "Saved to " << filename << "\n";
         } else {
@@ -161,7 +175,7 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
         return;
     }
     
-    if (firstWord == "export") {
+    if (firstWord == "export" || firstWord == "render") {
         if (!presentationOpen_) {
             std::cout << "Error: No presentation open.\n";
             return;
@@ -174,69 +188,10 @@ void Controller::handleSpecialCommands(const std::string& line, const std::strin
             baseName.erase(0, baseName.find_first_not_of(" \t"));
         }
         
-        // Export slides to SVG
-        bool success = true;
-        for (size_t i = 0; i < presentation_.size(); ++i) {
-            const auto* slide = presentation_.getSlideAt(i);
-            if (!slide) continue;
-            
-            std::string filename = baseName + "_" + std::to_string(i + 1) + ".svg";
-            std::ofstream file(filename);
-            if (!file) {
-                success = false;
-                continue;
-            }
-            
-            // Generate SVG
-            file << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-            file << "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"600\">\n";
-            file << "  <rect width=\"100%\" height=\"100%\" fill=\"white\"/>\n";
-            file << "  <text x=\"400\" y=\"30\" text-anchor=\"middle\" font-size=\"24\">" 
-                 << slide->getTitle() << "</text>\n";
-            
-            for (const auto& obj : slide->getObjects()) {
-                if (!obj) continue;
-                const auto& geom = obj->getGeometry();
-                std::string color = obj->getColor();
-                double x = geom.getX();
-                double y = geom.getY();
-                double w = geom.getWidth();
-                double h = geom.getHeight();
-                
-                switch (obj->getType()) {
-                    case ppt::ObjectType::RECTANGLE:
-                        file << "  <rect x=\"" << x << "\" y=\"" << y 
-                             << "\" width=\"" << w << "\" height=\"" << h
-                             << "\" fill=\"none\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
-                        break;
-                    case ppt::ObjectType::CIRCLE:
-                        file << "  <ellipse cx=\"" << (x + w/2)
-                             << "\" cy=\"" << (y + h/2)
-                             << "\" rx=\"" << w/2 << "\" ry=\"" << h/2
-                             << "\" fill=\"none\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
-                        break;
-                    case ppt::ObjectType::LINE:
-                        file << "  <line x1=\"" << x << "\" y1=\"" << y
-                             << "\" x2=\"" << (x + w) << "\" y2=\"" << (y + h)
-                             << "\" stroke=\"" << color << "\" stroke-width=\"2\"/>\n";
-                        break;
-                    case ppt::ObjectType::TEXT:
-                        file << "  <text x=\"" << x << "\" y=\"" << y
-                             << "\" font-size=\"16\" fill=\"" << color << "\">" 
-                             << obj->getName() << "</text>\n";
-                        break;
-                }
-            }
-            
-            file << "</svg>\n";
-            file.close();
-        }
-        
-        if (success) {
-            std::cout << "Exported " << presentation_.size() << " slides to SVG.\n";
-        } else {
-            std::cout << "Warning: Some slides could not be exported.\n";
-        }
+        auto painter = std::make_shared<ppt::SVGPainter>(800, 600);
+        ppt::RenderCommand renderCmd(painter, baseName, 
+                                      ppt::RenderCommand::RenderTarget::PRESENTATION);
+        renderCmd.execute(presentation_);
         return;
     }
     

@@ -1,16 +1,11 @@
 #!/bin/bash
 
-# Build the PPT CLI
-# Dependencies:
-#   Ubuntu: sudo apt install nlohmann-json3-dev
-#   macOS:  brew install nlohmann-json
+# Build PPT CLI
+# Dependencies: sudo apt install nlohmann-json3-dev
 
-# Detect OS and set include path
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS with Homebrew
     JSON_INCLUDE="-I$(brew --prefix nlohmann-json)/include"
 else
-    # Linux
     JSON_INCLUDE="-I/usr/include"
 fi
 
@@ -18,20 +13,20 @@ echo "Building PPT CLI..."
 
 g++ -std=c++17 -Wall -Wextra -O2 \
     $JSON_INCLUDE \
+    -I. \
     main.cpp \
-    Controller/Controller.cpp \
-    Parser/Parser.cpp \
-    Parser/Tokenizer.cpp \
-    Command/CommandFactory.cpp \
-    Command/Argument.cpp \
-    Document/Presentation.cpp \
-    Document/Slide.cpp \
+    CLI/Argument.cpp \
+    CLI/Tokenizer.cpp \
+    CLI/Parser.cpp \
+    CLI/CommandFactory.cpp \
+    CLI/Controller.cpp \
     Document/BaseSlideObject.cpp \
     Document/Rectangle.cpp \
     Document/Circle.cpp \
     Document/Line.cpp \
     Document/TextObject.cpp \
     Rendering/SVGPainter.cpp \
+    Rendering/RenderCommand.cpp \
     -o ppt-cli
 
 if [ $? -eq 0 ]; then

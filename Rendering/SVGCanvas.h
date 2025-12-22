@@ -16,6 +16,9 @@ public:
     SVGCanvas(int width = 800, int height = 600) 
         : width_(width), height_(height) {}
     
+    int getWidth() const override { return width_; }
+    int getHeight() const override { return height_; }
+    
     void drawRectangle(const Geometry& geom, const PaintProperties& props) override {
         content_ << "  <rect "
                  << "x=\"" << geom.getX() << "\" "
@@ -24,22 +27,15 @@ public:
                  << "height=\"" << geom.getHeight() << "\" "
                  << "fill=\"" << props.fillColor << "\" "
                  << "stroke=\"" << props.strokeColor << "\" "
-                 << "stroke-width=\"" << props.strokeWidth << "\""
-                 << "/>\n";
+                 << "stroke-width=\"" << props.strokeWidth << "\"";
+        if (props.opacity < 1.0) {
+            content_ << " opacity=\"" << props.opacity << "\"";
+        }
+        content_ << "/>\n";
     }
     
-    void drawCircle(const Point& center, double radius, const PaintProperties& props) override {
-        content_ << "  <circle "
-                 << "cx=\"" << center.x << "\" "
-                 << "cy=\"" << center.y << "\" "
-                 << "r=\"" << radius << "\" "
-                 << "fill=\"" << props.fillColor << "\" "
-                 << "stroke=\"" << props.strokeColor << "\" "
-                 << "stroke-width=\"" << props.strokeWidth << "\""
-                 << "/>\n";
-    }
-    
-    void drawEllipse(const Point& center, double rx, double ry, const PaintProperties& props) override {
+    void drawEllipse(const Point& center, double rx, double ry, 
+                     const PaintProperties& props) override {
         content_ << "  <ellipse "
                  << "cx=\"" << center.x << "\" "
                  << "cy=\"" << center.y << "\" "
@@ -47,23 +43,33 @@ public:
                  << "ry=\"" << ry << "\" "
                  << "fill=\"" << props.fillColor << "\" "
                  << "stroke=\"" << props.strokeColor << "\" "
-                 << "stroke-width=\"" << props.strokeWidth << "\""
-                 << "/>\n";
+                 << "stroke-width=\"" << props.strokeWidth << "\"";
+        if (props.opacity < 1.0) {
+            content_ << " opacity=\"" << props.opacity << "\"";
+        }
+        content_ << "/>\n";
     }
     
-    void drawLine(const Point& start, const Point& end, const PaintProperties& props) override {
+    void drawLine(const Point& start, const Point& end, 
+                  const PaintProperties& props) override {
         content_ << "  <line "
                  << "x1=\"" << start.x << "\" "
                  << "y1=\"" << start.y << "\" "
                  << "x2=\"" << end.x << "\" "
                  << "y2=\"" << end.y << "\" "
                  << "stroke=\"" << props.strokeColor << "\" "
-                 << "stroke-width=\"" << props.strokeWidth << "\""
-                 << "/>\n";
+                 << "stroke-width=\"" << props.strokeWidth << "\"";
+        if (props.strokeStyle == "dashed") {
+            content_ << " stroke-dasharray=\"5,5\"";
+        } else if (props.strokeStyle == "dotted") {
+            content_ << " stroke-dasharray=\"2,2\"";
+        }
+        content_ << "/>\n";
     }
     
-    void drawText(const Point& position, const std::string& text, 
-                  const std::string& font, int fontSize, const std::string& color) override {
+    void drawText(const Point& position, const std::string& text,
+                  const std::string& font, int fontSize, 
+                  const std::string& color) override {
         content_ << "  <text "
                  << "x=\"" << position.x << "\" "
                  << "y=\"" << position.y << "\" "
@@ -72,9 +78,6 @@ public:
                  << "fill=\"" << color << "\">"
                  << text << "</text>\n";
     }
-    
-    int getWidth() const override { return width_; }
-    int getHeight() const override { return height_; }
     
     std::string getOutput() const override {
         std::ostringstream svg;

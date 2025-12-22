@@ -2,49 +2,93 @@
 
 A C++ command-line application for creating and managing presentations with undo/redo support.
 
-## Features
+## Project Structure
 
-- Create and manage presentations with slides and shapes
-- Add shapes: rectangles, circles, lines, text
-- Full undo/redo support
-- Save/load presentations as JSON
-- Export slides to SVG format
-- Design patterns: Command, Action, Factory, Observer
+```
+ppt-cli/
+├── Action/
+│   ├── IAction.h           # Action interface
+│   ├── Editor.h            # Undo/redo stack manager
+│   ├── ShapeActions.h      # Add/remove shape actions
+│   └── SlideActions.h      # Add/remove slide actions
+├── CLI/
+│   ├── ICommand.h          # CLI command interface
+│   ├── Argument.h/cpp      # Command argument wrapper
+│   ├── Tokenizer.h/cpp     # Lexical tokenizer
+│   ├── Parser.h/cpp        # Command parser
+│   ├── CommandFactory.h/cpp # Factory for creating commands
+│   └── Controller.h/cpp    # Main CLI controller
+├── Document/
+│   ├── SlideObject.h       # Abstract shape interface
+│   ├── BaseSlideObject.h/cpp # Base implementation
+│   ├── Rectangle.h/cpp     # Rectangle shape
+│   ├── Circle.h/cpp        # Circle shape
+│   ├── Line.h/cpp          # Line shape
+│   ├── TextObject.h/cpp    # Text object
+│   ├── Slide.h             # Slide container (header-only)
+│   ├── Presentation.h      # Presentation container (header-only)
+│   └── JSONSerializer.h    # Serializer & Deserializer classes
+├── Geometry/
+│   └── Geometry.h          # Point and Geometry structs
+├── Rendering/
+│   ├── IBrush.h            # Brush interface
+│   ├── IPen.h              # Pen interface
+│   ├── ICanvas.h           # Canvas interface
+│   ├── IPainter.h          # Painter interface
+│   ├── PaintProperties.h   # Paint properties struct
+│   ├── SVGCanvas.h         # SVG canvas implementation
+│   ├── SVGPainter.h/cpp    # SVG painter implementation
+│   └── RenderCommand.h/cpp # Render command
+├── main.cpp
+├── CMakeLists.txt
+└── build.sh
+```
 
-## Architecture
+## Design Patterns
 
-### Namespaces
+1. **Command Pattern**: CLI commands (`AddCommand`, `RemoveCommand`, etc.)
+2. **Factory Pattern**: `CommandFactory` creates command instances
+3. **Action/Memento Pattern**: Undoable actions with state preservation
+4. **Strategy Pattern**: Rendering interfaces (`IPainter`, `ICanvas`, `IBrush`, `IPen`)
 
-- **ppt**: Core document model (Presentation, Slide, SlideObject hierarchy)
-- **ppt_cli**: CLI interface layer and alternative serialization
+## Serialization
 
-### Design Patterns Used
+Serialization and deserialization are separated into distinct classes:
 
-1. **Command Pattern**: CLI commands (AddCommand, RemoveCommand, ListCommand, etc.)
-2. **Action Pattern**: Undoable actions (AddSlideAction, RemoveShapeAction, etc.)
-3. **Factory Pattern**: CommandCreators for command instantiation
-4. **Strategy Pattern**: IShapeRenderer for different rendering approaches
+- `Serializer`: Converts `Presentation` → JSON, saves to file
+- `Deserializer`: Loads JSON → `Presentation`
+
+```cpp
+// Serialize
+ppt::Serializer::saveToFile(presentation, "output.json");
+std::string json = ppt::Serializer::toString(presentation);
+
+// Deserialize
+ppt::Deserializer::loadFromFile(presentation, "input.json");
+ppt::Deserializer::fromString(presentation, jsonString);
+```
 
 ## Building
 
 ### Prerequisites
 
-- CMake 3.16+
-- C++17 compiler (GCC 9+, Clang 10+, MSVC 2019+)
-- nlohmann-json library
-
-### Ubuntu/Debian
-
 ```bash
 sudo apt install cmake nlohmann-json3-dev
 ```
 
-### Build Steps
+### Build with CMake
 
 ```bash
 mkdir build && cd build
 cmake ..
 make
+```
+
+### Build with Shell Script
+
+```bash
+chmod +x build.sh
+./build.sh
 ```
 
 ## Usage
@@ -57,72 +101,19 @@ make
 
 | Command | Description |
 |---------|-------------|
-| `new` | Create a new presentation |
-| `open <file>` | Load a presentation from JSON |
-| `save [file]` | Save the current presentation |
+| `new` | Create new presentation |
+| `open <file>` | Load presentation from JSON |
+| `save [file]` | Save presentation |
 | `add slide [title]` | Add a new slide |
-| `add shape <name> [type] [color]` | Add a shape (rectangle, circle, line) |
-| `add text <area> "content"` | Add text to a slide |
-| `remove slide <id>` | Remove a slide by ID |
-| `remove shape <id>` | Remove a shape by ID |
-| `list` | List all slides and objects |
-| `undo` | Undo the last action |
-| `redo` | Redo the last undone action |
-| `export [basename]` | Export slides to SVG |
-| `exit` | Exit the application |
-
-### Example Session
-
-```
-ppt-cli> new
-Created new presentation.
-
-ppt-cli> add slide "Introduction"
-Added slide 1: Introduction
-
-ppt-cli> add shape rect1 rectangle blue
-Added shape rect1 to slide 1
-
-ppt-cli> add shape circle1 circle red
-Added shape circle1 to slide 1
-
-ppt-cli> list
-Presentation (1 slides):
-  Slide 1: Introduction (2 objects)
-    - rect1 (rectangle) - blue
-    - circle1 (circle) - red
-
-ppt-cli> save myPresentation.json
-Saved to myPresentation.json
-
-ppt-cli> export mySlides
-Exported 1 slides to SVG.
-
-ppt-cli> exit
-Goodbye!
-```
-
-## Project Structure
-
-```
-ppt-cli/
-├── Action/              # Undoable actions (Add/Remove Slide/Shape)
-├── CLI/
-│   ├── Command/         # CLI commands
-│   ├── Controller/      # Main CLI controller
-│   ├── Parser/          # Command parser and tokenizer
-│   └── Repository/      # Command registry
-├── Document/
-│   ├── Elements/        # ppt_cli namespace elements
-│   ├── Presentation.*   # Main presentation class
-│   ├── Slide.*          # Slide container
-│   └── *Object.*        # Shape classes
-├── Geometry/            # Point and Geometry structs
-├── Serialization/       # JSON serialization
-├── Visualization/       # SVG rendering
-├── Main.cpp             # Entry point
-└── CMakeLists.txt       # Build configuration
-```
+| `add shape <n> [type] [color]` | Add a shape |
+| `add text <area> "content"` | Add text |
+| `remove slide <id>` | Remove slide |
+| `remove shape <id>` | Remove shape |
+| `list` | List all contents |
+| `undo` | Undo last action |
+| `redo` | Redo last undone action |
+| `render [basename]` | Export to SVG |
+| `exit` | Exit application |
 
 ## License
 
